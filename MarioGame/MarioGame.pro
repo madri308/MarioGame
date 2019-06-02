@@ -26,15 +26,25 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        gamewindow.cpp
+        gamewindow.cpp \
+    board.cpp \
+    node.cpp \
+    startwindow.cpp
 
 HEADERS += \
-        gamewindow.h
+        gamewindow.h \
+    board.h \
+    node.h \
+    startwindow.h
 
 FORMS += \
-        gamewindow.ui
+        gamewindow.ui \
+    startwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    extrafiles.qrc

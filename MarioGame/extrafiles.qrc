@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>BackGround0.png</file>
+        <file>BackGround1.png</file>
+        <file>mario.png</file>
+        <file>daisy.png</file>
+        <file>dino.png</file>
+        <file>luigi.png</file>
+        <file>peach.png</file>
+        <file>toat.png</file>
+        <file>dinoa.png</file>
+        <file>DKK.png</file>
+        <file>bones.png</file>
+        <file>waluigi.png</file>
+        <file>jugar.png</file>
+        <file>board.png</file>
+    </qresource>
+</RCC>
