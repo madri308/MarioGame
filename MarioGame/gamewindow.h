@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "board.h"
 #include "QCheckBox"
+#include "QLabel"
 
 namespace Ui {
 class GameWindow;
@@ -18,6 +19,8 @@ public:
     ~GameWindow();
 
     Board *board;
+    QLabel *images[6];
+    int quantPlayers = 0;
 
 private:
     Ui::GameWindow *ui;
