@@ -13,7 +13,7 @@ public:
     QString name;
     QPixmap icon;
     int numbRand;
-    bool nodesVisited[26];
+    bool nodesVisited[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     Node *whereIs;
 };
 

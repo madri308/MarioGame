@@ -84,7 +84,7 @@ void ChooseWindow::getPlayers()
 
 void ChooseWindow::done()
 {
-    GameWindow *g = new GameWindow();
+    GameWindow *g = new GameWindow(nullptr , this->playerList , this->playerCount);
     g->quantPlayers = this->playerCount;
     for(int e = 0 ; e < playerCount ; e++){
         g->playerList[e] = this->playerList[e];
@@ -99,6 +99,6 @@ void ChooseWindow::done()
 
         g->names[e]->setText(name);
     }
-    g->showMaximized();
     this->close();
+    g->showMaximized();
 }

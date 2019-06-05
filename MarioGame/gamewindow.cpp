@@ -4,15 +4,17 @@
 #include "QSignalMapper"
 #include "matrixwindow.h"
 #include "QStandardItemModel"
-#include "wayswindow.h"
 #include "QListView"
 
-GameWindow::GameWindow(QWidget *parent) :
+GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
-
+    this->quantPlayers = pc;
+    for(int p = 0 ; p < this->quantPlayers ; p++){
+        this->playerList[p] = players[p];
+    }
     //PONE EL BACKGROUND
     QPixmap bkgnd(":/BackGround1.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -72,6 +74,7 @@ GameWindow::GameWindow(QWidget *parent) :
     this->boxes[23] = ui->C1_24;
     this->boxes[24] = ui->C1_25;
     this->boxes[25] = ui->C1_26;
+    start();
 }
 
 GameWindow::~GameWindow()
@@ -79,11 +82,35 @@ GameWindow::~GameWindow()
     delete ui;
 }
 
+void GameWindow::start()
+{
+    srand(time(NULL));
+    for(int p = 0 ; p < this->quantPlayers ; p++){
+        Player *player = this->playerList[p];
+        int numRand = rand() % 26;
+        QLabel *label = this->boxes[numRand];
+        label->setText(label->text()+player->name+"\n");
+        player->nodesVisited[numRand] = true;
+        player->whereIs = this->board->totalNodes[numRand];
+    }
+
+}
+
 void GameWindow::showPlayerInfo(int b)
 {
+    msgBox.setText("");
     Player *player = playerList[b];
     msgBox.setWindowTitle(player->name);
     msgBox.setWindowIcon(player->icon);
+    msgBox.setText(msgBox.text()+"Casilla Actual: "+QString::number(player->whereIs->id+1)+"\n");
+    msgBox.setText(msgBox.text()+"Casillas visitadas: ");
+    for(int b = 0 ; b < 26 ; b++){
+        bool visited = player->nodesVisited[b];
+        if(visited){
+            msgBox.setText(msgBox.text()+QString::number(this->board->totalNodes[b]->id+1)+"-");
+        }
+    }
+    msgBox.setText(msgBox.text()+"\n");
     msgBox.exec();
 }
 

@@ -35,6 +35,9 @@
     <property name="scaledContents">
      <bool>true</bool>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="enabled">
@@ -342,8 +345,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_2">
@@ -355,8 +365,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_3">
@@ -368,8 +385,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_4">
@@ -381,8 +405,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_5">
@@ -394,8 +425,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_6">
@@ -407,8 +445,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_7">
@@ -420,8 +465,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_8">
@@ -433,8 +485,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_9">
@@ -446,8 +505,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_10">
@@ -459,8 +525,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_11">
@@ -472,8 +545,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_12">
@@ -485,8 +565,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_13">
@@ -498,8 +585,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_14">
@@ -511,8 +605,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_15">
@@ -524,8 +625,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_16">
@@ -537,8 +645,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_17">
@@ -550,8 +665,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_18">
@@ -563,8 +685,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_19">
@@ -576,8 +705,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_20">
@@ -589,21 +725,35 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_21">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>860</x>
       <y>300</y>
       <width>111</width>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_22">
@@ -615,8 +765,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_23">
@@ -628,8 +785,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_24">
@@ -641,8 +805,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_25">
@@ -654,8 +825,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="C1_26">
@@ -667,8 +845,15 @@ color:white;</string>
       <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

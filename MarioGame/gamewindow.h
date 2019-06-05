@@ -17,7 +17,7 @@ class GameWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit GameWindow(QWidget *parent = nullptr);
+    explicit GameWindow(QWidget *parent,Player *players[], int pc);
     ~GameWindow();
 
     Board *board;
@@ -27,6 +27,7 @@ public:
     Player *playerList[6];
     QMessageBox msgBox;
     QLabel *boxes[26];
+    void start();
 public slots:
     void showPlayerInfo(int b);
     void showMatrix();
