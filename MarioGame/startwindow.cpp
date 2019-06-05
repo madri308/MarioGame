@@ -2,6 +2,7 @@
 #include "gamewindow.h"
 #include "ui_startwindow.h"
 #include "iostream"
+#include "choosewindow.h"
 
 StartWindow::StartWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,6 +20,8 @@ StartWindow::StartWindow(QWidget *parent) :
     this->itemList[7] = ui->yoshi;
     this->itemList[8] = ui->shyguy;
     this->itemList[9] = ui->donkey_kong;
+
+
     for(QCheckBox *item:this->itemList){
         connect(item, SIGNAL(stateChanged(int)), this, SLOT(checkPlayers(int)));
     }
@@ -60,12 +63,26 @@ void StartWindow::checkPlayers(int s)
     }else{
         ui->play->hide();
     }
-    std::cout<<this->playersCount<<std::endl;
 }
 
 void StartWindow::play()
 {
     this->close();
-    GameWindow *gm = new GameWindow(nullptr,this->itemList);
-    gm->showMaximized();
+    ChooseWindow *c = new ChooseWindow();
+    int quantPlayers = 0;
+    for(int i = 0 ; i<10 ; i++){
+        QCheckBox *item = itemList[i];
+        if(item->checkState() == 2){ //SI FUE SELECCIONADO
+            QIcon icon = item->icon(); //SACA EL ICONO
+            QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(50, 50)));//LO CONVIERTE EN PIXMAP
+
+            c->images[quantPlayers]->setPixmap(pixmap);
+            c->images[quantPlayers]->setObjectName(item->objectName());
+            c->textList[quantPlayers]->show();
+
+            quantPlayers++;//AUMENTA LA CANTIDAD DE JUGADORES
+        }
+    }
+    c->playerCount = this->playersCount;
+    c->show();
 }

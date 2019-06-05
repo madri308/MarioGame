@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include "board.h"
-#include "QCheckBox"
+#include "player.h"
+#include "QPushButton"
 #include "QLabel"
+#include "QMessageBox"
 
 namespace Ui {
 class GameWindow;
@@ -15,13 +17,20 @@ class GameWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit GameWindow(QWidget *parent, QCheckBox *playerList[10]);
+    explicit GameWindow(QWidget *parent = nullptr);
     ~GameWindow();
 
     Board *board;
-    QLabel *images[6];
+    QPushButton *images[6];
+    QLabel *names[6];
     int quantPlayers = 0;
-
+    Player *playerList[6];
+    QMessageBox msgBox;
+    QLabel *boxes[26];
+public slots:
+    void showPlayerInfo(int b);
+    void showMatrix();
+    void showWays();
 private:
     Ui::GameWindow *ui;
 };

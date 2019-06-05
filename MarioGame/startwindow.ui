@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Jugadores</string>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -88,7 +88,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QCheckBox" name="peach">
+   <widget class="QCheckBox" name="daisy">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -111,7 +111,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QCheckBox" name="daisy">
+   <widget class="QCheckBox" name="peach">
     <property name="geometry">
      <rect>
       <x>50</x>

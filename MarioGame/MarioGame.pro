@@ -29,17 +29,25 @@ SOURCES += \
         gamewindow.cpp \
     board.cpp \
     node.cpp \
-    startwindow.cpp
+    startwindow.cpp \
+    player.cpp \
+    choosewindow.cpp \
+    matrixwindow.cpp
 
 HEADERS += \
         gamewindow.h \
     board.h \
     node.h \
-    startwindow.h
+    startwindow.h \
+    player.h \
+    choosewindow.h \
+    matrixwindow.h
 
 FORMS += \
         gamewindow.ui \
-    startwindow.ui
+    startwindow.ui \
+    choosewindow.ui \
+    matrixwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
