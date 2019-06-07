@@ -12,9 +12,10 @@ Board::Board()
         Node *newNode = new Node(row);
         this->totalNodes[row] = newNode;
         for(int column = 0 ; column < 26 ; column++){
-            if(row != column){
+            if(row != column && this->adjMatrix[row][column] == 0){
                 int value = (rand() % 10)+1;
                 this->adjMatrix[row][column] = value;
+                this->adjMatrix[column][row] = value;
             }
         }
     }
@@ -34,6 +35,8 @@ void Board::generate(){
             column = rand() % 26;
         }
         this->adjMatrix[row][column] = 0;
+        this->adjMatrix[column][row] = 0;
+        Vert++;
     }
 }
 

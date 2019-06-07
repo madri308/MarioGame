@@ -39,27 +39,15 @@ ChooseWindow::~ChooseWindow()
 }
 void ChooseWindow::sort(Player *list[]){
     ui->players->clear();
-    srand(time(NULL));
     int numRand = rand() % 1000 + 1;
     this->ui->rand->setNum(numRand);
-
     for(int player = 0 ; player < playerCount ; player++){
-        int diference1 = numRand - list[player]->numbRand;
-        if(numRand < list[player]->numbRand){
-            diference1 = abs(diference1);
-        }
         for(int playerToCompare = player+1 ; playerToCompare < playerCount ; playerToCompare++){
-            int diference2 = numRand - list[playerToCompare]->numbRand;
-            if(numRand < list[playerToCompare]->numbRand){
-                diference2 = abs(diference2);
-            }
+            int diference1 = abs(numRand - list[player]->numbRand);
+            int diference2 = abs(numRand - list[playerToCompare]->numbRand);
             if(diference2 < diference1){
                 Player *temp = list[player];
                 list[player] = list[playerToCompare];
-                list[playerToCompare] = temp;
-            }else if(diference2 == diference1){
-                Player *temp = list[player+1];
-                list[player+1] = list[playerToCompare];
                 list[playerToCompare] = temp;
             }
         }
@@ -70,6 +58,7 @@ void ChooseWindow::sort(Player *list[]){
 }
 void ChooseWindow::getPlayers()
 {
+    srand(time(NULL));
     for(int p = 0 ; p < playerCount ; p++){
         QTextEdit *text = textList[p];
         QLabel *label = images[p];
