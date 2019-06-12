@@ -5,6 +5,8 @@
 #include "matrixwindow.h"
 #include "QStandardItemModel"
 #include "QListView"
+#include "QLineEdit"
+#include "QGroupBox"
 
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
@@ -36,6 +38,7 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     names[5] = ui->label_6;
     //CONEXIONES CON BOTONES
     connect(ui->matriz, SIGNAL(released()), this, SLOT(showMatrix()));
+    connect(ui->throwB, SIGNAL(released()), this, SLOT(throwDices()));
     int b = 0;
     for(QPushButton *button:images){
         connect(button, &QPushButton::released, [=]{
@@ -47,34 +50,62 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     this->board = new Board();
     //MUESTRA LOS CAMINOS ENTRE NODOS
     showWays();
-    //GUARDA LOS LABELS DE CADA CASILLA
-    this->boxes[0] = ui->C1_1;
-    this->boxes[1] = ui->C1_2;
-    this->boxes[2] = ui->C1_3;
-    this->boxes[3] = ui->C1_4;
-    this->boxes[4] = ui->C1_5;
-    this->boxes[5] = ui->C1_6;
-    this->boxes[6] = ui->C1_7;
-    this->boxes[7] = ui->C1_8;
-    this->boxes[8] = ui->C1_9;
-    this->boxes[9] = ui->C1_10;
-    this->boxes[10] = ui->C1_11;
-    this->boxes[11] = ui->C1_12;
-    this->boxes[12] = ui->C1_13;
-    this->boxes[13] = ui->C1_14;
-    this->boxes[14] = ui->C1_15;
-    this->boxes[15] = ui->C1_16;
-    this->boxes[16] = ui->C1_17;
-    this->boxes[17] = ui->C1_18;
-    this->boxes[18] = ui->C1_19;
-    this->boxes[19] = ui->C1_20;
-    this->boxes[20] = ui->C1_21;
-    this->boxes[21] = ui->C1_22;
-    this->boxes[22] = ui->C1_23;
-    this->boxes[23] = ui->C1_24;
-    this->boxes[24] = ui->C1_25;
-    this->boxes[25] = ui->C1_26;
+    //GUARDA LOS LABELS PARA LOS NOMBRES DE CADA CASILLA
+    this->CNames[0] = ui->name1;
+    this->CNames[1] = ui->name2;
+    this->CNames[2] = ui->name3;
+    this->CNames[3] = ui->name4;
+    this->CNames[4] = ui->name5;
+    this->CNames[5] = ui->name6;
+    this->CNames[6] = ui->name7;
+    this->CNames[7] = ui->name8;
+    this->CNames[8] = ui->name9;
+    this->CNames[9] = ui->name10;
+    this->CNames[10] = ui->name11;
+    this->CNames[11] = ui->name12;
+    this->CNames[12] = ui->name13;
+    this->CNames[13] = ui->name14;
+    this->CNames[14] = ui->name15;
+    this->CNames[15] = ui->name16;
+    this->CNames[16] = ui->name17;
+    this->CNames[17] = ui->name18;
+    this->CNames[18] = ui->name19;
+    this->CNames[19] = ui->name20;
+    this->CNames[20] = ui->name21;
+    this->CNames[21] = ui->name22;
+    this->CNames[22] = ui->name23;
+    this->CNames[23] = ui->name24;
+    this->CNames[24] = ui->name25;
+    this->CNames[25] = ui->name26;
+    //GUARDA LOS ESPACIOS PARA LAS IMAGENES DE LOS JUGADORES
+    this->CImages[0] = ui->C1;
+    this->CImages[1] = ui->C2;
+    this->CImages[2] = ui->C3;
+    this->CImages[3] = ui->C4;
+    this->CImages[4] = ui->C5;
+    this->CImages[5] = ui->C6;
+    this->CImages[6] = ui->C7;
+    this->CImages[7] = ui->C8;
+    this->CImages[8] = ui->C9;
+    this->CImages[9] = ui->C10;
+    this->CImages[10] = ui->C11;
+    this->CImages[11] = ui->C12;
+    this->CImages[12] = ui->C13;
+    this->CImages[13] = ui->C14;
+    this->CImages[14] = ui->C15;
+    this->CImages[15] = ui->C16;
+    this->CImages[16] = ui->C17;
+    this->CImages[17] = ui->C18;
+    this->CImages[18] = ui->C19;
+    this->CImages[19] = ui->C20;
+    this->CImages[20] = ui->C21;
+    this->CImages[21] = ui->C22;
+    this->CImages[22] = ui->C23;
+    this->CImages[23] = ui->C24;
+    this->CImages[24] = ui->C25;
+    this->CImages[25] = ui->C26;
     start();
+
 }
 
 GameWindow::~GameWindow()
@@ -85,15 +116,74 @@ GameWindow::~GameWindow()
 void GameWindow::start()
 {
     srand(time(NULL));
+    QLabel *playerName = this->names[this->pos];
+    playerName->setStyleSheet("color:red");
+    //COLOCA A LOS JUGADORES EN CASILLAS ALEATORIAS.
     for(int p = 0 ; p < this->quantPlayers ; p++){
-        Player *player = this->playerList[p];
+        Player *player = this->playerList[p]; //AGARRA EL JUGADOR DE LA LISTA
         int numRand = rand() % 26;
-        QLabel *label = this->boxes[numRand];
-        label->setText(label->text()+player->name+"\n");
+        QGridLayout *gridGroupBox = this->CImages[numRand];
+        player->box = numRand;
+        QLabel *label =  new QLabel();
+        label->setPixmap(player->icon);
+        label->setScaledContents(true);
+        player->row = this->board->totalNodes[numRand]->row;
+        player->column = this->board->totalNodes[numRand]->column;
+        gridGroupBox->addWidget(label,this->board->totalNodes[numRand]->row,this->board->totalNodes[numRand]->column);
+        this->board->totalNodes[numRand]->column++;
+        if(this->board->totalNodes[numRand]->column == 3){
+            this->board->totalNodes[numRand]->column = 0;
+            this->board->totalNodes[numRand]->row++;
+        }
         player->nodesVisited[numRand] = true;
         player->whereIs = this->board->totalNodes[numRand];
     }
+}
 
+void GameWindow::throwDices()
+{
+    Player *player = this->playerList[this->pos];
+
+    int dice1 = rand() % 8;  // in the range of 0 - 7
+    int dice2 = rand() % 8;  // in the range of 0 - 7
+
+    int totalDice = dice1+dice2;
+    this->ui->diceResult->wordWrap();
+    this->ui->diceResult->setText(QString::number(dice1) + " + " + QString::number(dice2) + " = " + QString::number(totalDice));
+
+    for(int n = 0 ; n<player->whereIs->ways ; n++){
+        if(player->whereIs->values[n] == totalDice){
+            //Juega el juego
+
+            //En caso de que gane
+            QWidget *image = this->CImages[player->whereIs->id]->itemAtPosition(player->row,player->column)->widget();
+            player->whereIs->column--;
+            if(player->whereIs->column == -1){
+                player->whereIs->column = 2;
+                player->whereIs->row--;
+            }
+            player->update(this->board->totalNodes[player->whereIs->nodes[n]->id],player->whereIs->id);
+            this->CImages[player->whereIs->id]->addWidget(image,player->whereIs->row,player->whereIs->column);
+            player->row = player->whereIs->row;
+            player->column = player->whereIs->column;
+            player->whereIs->column++;
+            if(player->whereIs->column == 3){
+                player->whereIs->column = 0;
+                player->whereIs->row++;
+            }
+            break;
+        }
+    }
+
+    QLabel *playerName = this->names[this->pos];
+    playerName->setStyleSheet("color:white");
+    if(this->pos == this->quantPlayers-1){
+        this->pos = 0;
+    }else{
+        this->pos++;
+    }
+    playerName = this->names[this->pos];
+    playerName->setStyleSheet("color:red");
 }
 
 void GameWindow::showPlayerInfo(int b)
@@ -148,4 +238,3 @@ void GameWindow::showWays()
         }
     }
 }
-

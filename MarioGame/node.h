@@ -13,6 +13,8 @@ public:
     int ways = 0;
     int id = 0;
     bool visited = false;
+    int column = 0;
+    int row = 0;
 };
 
 #endif // NODE_H

@@ -336,13 +336,13 @@ color:white;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_1">
+   <widget class="QLabel" name="name1">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>12</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -356,13 +356,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_2">
+   <widget class="QLabel" name="name2">
     <property name="geometry">
      <rect>
       <x>160</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -376,13 +376,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_3">
+   <widget class="QLabel" name="name3">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -396,13 +396,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_4">
+   <widget class="QLabel" name="name4">
     <property name="geometry">
      <rect>
       <x>440</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -416,13 +416,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_5">
+   <widget class="QLabel" name="name5">
     <property name="geometry">
      <rect>
       <x>580</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -436,13 +436,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_6">
+   <widget class="QLabel" name="name6">
     <property name="geometry">
      <rect>
       <x>720</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -456,13 +456,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_7">
+   <widget class="QLabel" name="name7">
     <property name="geometry">
      <rect>
       <x>850</x>
       <y>10</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -476,13 +476,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_8">
+   <widget class="QLabel" name="name8">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -496,13 +496,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_9">
+   <widget class="QLabel" name="name9">
     <property name="geometry">
      <rect>
       <x>160</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -516,13 +516,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_10">
+   <widget class="QLabel" name="name10">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -536,13 +536,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_11">
+   <widget class="QLabel" name="name11">
     <property name="geometry">
      <rect>
       <x>440</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -556,13 +556,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_12">
+   <widget class="QLabel" name="name12">
     <property name="geometry">
      <rect>
       <x>580</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -576,13 +576,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_13">
+   <widget class="QLabel" name="name13">
     <property name="geometry">
      <rect>
       <x>710</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -596,13 +596,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_14">
+   <widget class="QLabel" name="name14">
     <property name="geometry">
      <rect>
       <x>850</x>
       <y>160</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -616,13 +616,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_15">
+   <widget class="QLabel" name="name15">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>310</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -636,13 +636,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_16">
+   <widget class="QLabel" name="name16">
     <property name="geometry">
      <rect>
       <x>160</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -656,13 +656,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_17">
+   <widget class="QLabel" name="name17">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -676,13 +676,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_18">
+   <widget class="QLabel" name="name18">
     <property name="geometry">
      <rect>
       <x>440</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -696,13 +696,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_19">
+   <widget class="QLabel" name="name19">
     <property name="geometry">
      <rect>
       <x>580</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -716,13 +716,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_20">
+   <widget class="QLabel" name="name20">
     <property name="geometry">
      <rect>
       <x>710</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -736,13 +736,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_21">
+   <widget class="QLabel" name="name21">
     <property name="geometry">
      <rect>
       <x>860</x>
       <y>300</y>
       <width>111</width>
-      <height>111</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -756,13 +756,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_22">
+   <widget class="QLabel" name="name22">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>450</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -776,13 +776,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_23">
+   <widget class="QLabel" name="name23">
     <property name="geometry">
      <rect>
       <x>290</x>
       <y>450</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -796,13 +796,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_24">
+   <widget class="QLabel" name="name24">
     <property name="geometry">
      <rect>
       <x>440</x>
       <y>450</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -816,13 +816,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_25">
+   <widget class="QLabel" name="name25">
     <property name="geometry">
      <rect>
       <x>580</x>
       <y>450</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -836,13 +836,332 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="C1_26">
+   <widget class="QLabel" name="name26">
     <property name="geometry">
      <rect>
       <x>730</x>
       <y>450</y>
       <width>111</width>
-      <height>111</height>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C1"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C2"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C3"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C4"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C5"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_6">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C6"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_7">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>60</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C7"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C8"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_9">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C9"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_10">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C10"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_11">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C11"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_12">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C12"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_13">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C13"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_14">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>210</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C14"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_15">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C21"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_16">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C20"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_17">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C19"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_18">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C18"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_19">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C17"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_20">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C26"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_21">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C25"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_22">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C24"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_23">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C23"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_24">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C22"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_25">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C16"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_26">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="C15"/>
+   </widget>
+   <widget class="QPushButton" name="throwB">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>320</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tirar dados</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="diceResult">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>380</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">

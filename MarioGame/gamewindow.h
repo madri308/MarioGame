@@ -7,6 +7,7 @@
 #include "QPushButton"
 #include "QLabel"
 #include "QMessageBox"
+#include "QGridLayout"
 
 namespace Ui {
 class GameWindow;
@@ -26,9 +27,15 @@ public:
     int quantPlayers = 0;
     Player *playerList[6];
     QMessageBox msgBox;
-    QLabel *boxes[26];
+
+    int pos = 0;
+
+    QGridLayout *CImages[26];
+    QLabel *CNames[26];
+
     void start();
 public slots:
+    void throwDices();
     void showPlayerInfo(int b);
     void showMatrix();
     void showWays();

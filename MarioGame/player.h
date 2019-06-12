@@ -15,6 +15,11 @@ public:
     int numbRand;
     bool nodesVisited[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     Node *whereIs;
+    int box;
+
+    int row = 0;
+    int column = 0;
+    void update(Node *whereIs, int visited);
 };
 
 #endif // PLAYER_H
