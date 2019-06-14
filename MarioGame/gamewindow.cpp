@@ -77,6 +77,19 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     this->CNames[23] = ui->name24;
     this->CNames[24] = ui->name25;
     this->CNames[25] = ui->name26;
+    for(int type = 0 ; type<26; type++){
+        this->CNames[type]->setWordWrap(true);
+        this->CNames[type]->setStyleSheet("font-weight: bold; color: white");
+        QString part;
+        if(this->board->totalNodes[type]->type2 == "Castigo"){
+            part = QString("<span style=color:red;>%1</span>").arg(QString::fromStdString(this->board->totalNodes[type]->type2)+": ");
+        }else if(this->board->totalNodes[type]->type2 == "Comodin"){
+            part = QString("<span style=color:green;>%1</span>").arg(QString::fromStdString(this->board->totalNodes[type]->type2)+": ");
+        }else if(this->board->totalNodes[type]->type2 == "Juego"){
+            part = QString("<span style=color:yellow;>%1</span>").arg(QString::fromStdString(this->board->totalNodes[type]->type2)+": ");
+        }
+        this->CNames[type]->setText(part+QString::fromStdString(this->board->totalNodes[type]->type));
+    }
     //GUARDA LOS ESPACIOS PARA LAS IMAGENES DE LOS JUGADORES
     this->CImages[0] = ui->C1;
     this->CImages[1] = ui->C2;
@@ -140,6 +153,25 @@ void GameWindow::start()
     }
 }
 
+void GameWindow::move(Player *player, int n)
+{
+    QWidget *image = this->CImages[player->whereIs->id]->itemAtPosition(player->row,player->column)->widget();
+    player->whereIs->column--;
+    if(player->whereIs->column == -1){
+        player->whereIs->column = 2;
+        player->whereIs->row--;
+    }
+    player->update(this->board->totalNodes[player->whereIs->nodes[n]->id],player->whereIs->id);
+    this->CImages[player->whereIs->id]->addWidget(image,player->whereIs->row,player->whereIs->column);
+    player->row = player->whereIs->row;
+    player->column = player->whereIs->column;
+    player->whereIs->column++;
+    if(player->whereIs->column == 3){
+        player->whereIs->column = 0;
+        player->whereIs->row++;
+    }
+}
+
 void GameWindow::throwDices()
 {
     Player *player = this->playerList[this->pos];
@@ -156,20 +188,19 @@ void GameWindow::throwDices()
             //Juega el juego
 
             //En caso de que gane
-            QWidget *image = this->CImages[player->whereIs->id]->itemAtPosition(player->row,player->column)->widget();
-            player->whereIs->column--;
-            if(player->whereIs->column == -1){
-                player->whereIs->column = 2;
-                player->whereIs->row--;
+            move(player,n);
+            bool winner = true;
+            for(bool check:player->nodesVisited){
+                if(check == false){
+                    winner = false;
+                    break;
+                }
             }
-            player->update(this->board->totalNodes[player->whereIs->nodes[n]->id],player->whereIs->id);
-            this->CImages[player->whereIs->id]->addWidget(image,player->whereIs->row,player->whereIs->column);
-            player->row = player->whereIs->row;
-            player->column = player->whereIs->column;
-            player->whereIs->column++;
-            if(player->whereIs->column == 3){
-                player->whereIs->column = 0;
-                player->whereIs->row++;
+            if(winner == true){
+                this->msgBox.setWindowTitle("Ganador");
+                this->msgBox.setIconPixmap(player->icon);
+                this->msgBox.setText(player->name);
+                this->msgBox.exec();
             }
             break;
         }

@@ -34,6 +34,7 @@ public:
     QLabel *CNames[26];
 
     void start();
+    void move(Player *whereIs,int newPos);
 public slots:
     void throwDices();
     void showPlayerInfo(int b);

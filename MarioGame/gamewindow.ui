@@ -339,15 +339,15 @@ color:white;</string>
    <widget class="QLabel" name="name1">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>40</x>
       <y>12</y>
-      <width>111</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">color:white;
-font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string/>
@@ -359,9 +359,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name2">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>190</x>
       <y>10</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -379,9 +379,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name3">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>330</x>
       <y>10</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -399,9 +399,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name4">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>460</x>
       <y>10</y>
-      <width>111</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
@@ -419,9 +419,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name5">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>600</x>
       <y>10</y>
-      <width>111</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
@@ -439,9 +439,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name6">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>740</x>
       <y>10</y>
-      <width>111</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
@@ -459,9 +459,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name7">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>880</x>
       <y>10</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -479,9 +479,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name8">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>50</x>
       <y>160</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -499,9 +499,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name9">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>190</x>
       <y>160</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -519,9 +519,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name10">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>340</x>
       <y>160</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -539,9 +539,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name11">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>470</x>
       <y>160</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -559,9 +559,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name12">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>620</x>
       <y>160</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -579,9 +579,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name13">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>750</x>
       <y>160</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -599,9 +599,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name14">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>890</x>
       <y>160</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -619,10 +619,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name15">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
-      <width>111</width>
-      <height>31</height>
+      <x>60</x>
+      <y>300</y>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -639,9 +639,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name16">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>200</x>
       <y>300</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -659,9 +659,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name17">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>340</x>
       <y>300</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -679,9 +679,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name18">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>470</x>
       <y>300</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -699,10 +699,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name19">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>610</x>
       <y>300</y>
-      <width>111</width>
-      <height>31</height>
+      <width>81</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -719,9 +719,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name20">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>750</x>
       <y>300</y>
-      <width>111</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -739,9 +739,9 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name21">
     <property name="geometry">
      <rect>
-      <x>860</x>
+      <x>890</x>
       <y>300</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
@@ -759,10 +759,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name22">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>180</x>
       <y>450</y>
-      <width>111</width>
-      <height>31</height>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -779,10 +779,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name23">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>330</x>
       <y>450</y>
-      <width>111</width>
-      <height>31</height>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -799,10 +799,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name24">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>470</x>
       <y>450</y>
-      <width>111</width>
-      <height>31</height>
+      <width>81</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -819,10 +819,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name25">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>620</x>
       <y>450</y>
-      <width>111</width>
-      <height>31</height>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -839,10 +839,10 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLabel" name="name26">
     <property name="geometry">
      <rect>
-      <x>730</x>
+      <x>770</x>
       <y>450</y>
-      <width>111</width>
-      <height>31</height>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
