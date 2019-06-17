@@ -37,6 +37,9 @@ public:
 
     void generate();
     void setNodesData();
+    Node *tube1 = nullptr;
+    Node *tube2 = nullptr;
+    Node *tube3 = nullptr;
 };
 
 #endif // BOARD_H

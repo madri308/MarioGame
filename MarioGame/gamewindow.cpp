@@ -17,6 +17,7 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     for(int p = 0 ; p < this->quantPlayers ; p++){
         this->playerList[p] = players[p];
     }
+    ui->select->hide();
     //PONE EL BACKGROUND
     QPixmap bkgnd(":/BackGround1.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -153,7 +154,7 @@ void GameWindow::start()
     }
 }
 
-void GameWindow::move(Player *player, int n)
+void GameWindow::move(Player *player, Node *newWhereIs)
 {
     QWidget *image = this->CImages[player->whereIs->id]->itemAtPosition(player->row,player->column)->widget();
     player->whereIs->column--;
@@ -161,7 +162,8 @@ void GameWindow::move(Player *player, int n)
         player->whereIs->column = 2;
         player->whereIs->row--;
     }
-    player->update(this->board->totalNodes[player->whereIs->nodes[n]->id],player->whereIs->id);
+    player->whereIs = newWhereIs;
+    player->nodesVisited[player->whereIs->id] = true;
     this->CImages[player->whereIs->id]->addWidget(image,player->whereIs->row,player->whereIs->column);
     player->row = player->whereIs->row;
     player->column = player->whereIs->column;
@@ -175,37 +177,119 @@ void GameWindow::move(Player *player, int n)
 void GameWindow::throwDices()
 {
     Player *player = this->playerList[this->pos];
+    //SI HA PERDIDO ALGUN TURNO.
+    if(player->blocked != 0){
+        player->blocked = player->blocked-1;
+        msgBox.setWindowTitle("Estas bloqueado");
+        msgBox.setIconPixmap(player->icon);
+        msgBox.setText("Aun no puedes jugar, ahora estas bloqueado por "+QString::number(player->blocked)+" turnos.");
+        msgBox.exec();
+    }else{
+        int dice1 = rand() % 8;  // in the range of 0 - 7
+        int dice2 = rand() % 8;  // in the range of 0 - 7
 
-    int dice1 = rand() % 8;  // in the range of 0 - 7
-    int dice2 = rand() % 8;  // in the range of 0 - 7
-
-    int totalDice = dice1+dice2;
-    this->ui->diceResult->wordWrap();
-    this->ui->diceResult->setText(QString::number(dice1) + " + " + QString::number(dice2) + " = " + QString::number(totalDice));
-
-    for(int n = 0 ; n<player->whereIs->ways ; n++){
-        if(player->whereIs->values[n] == totalDice){
-            //Juega el juego
-
-            //En caso de que gane
-            move(player,n);
-            bool winner = true;
-            for(bool check:player->nodesVisited){
-                if(check == false){
-                    winner = false;
-                    break;
+        int totalDice = dice1+dice2;
+        this->ui->diceResult->wordWrap();
+        this->ui->diceResult->setText(QString::number(dice1) + " + " + QString::number(dice2) + " = " + QString::number(totalDice));
+        for(int n = 0 ; n<player->whereIs->ways ; n++){
+            if(player->whereIs->values[n] == totalDice){
+                Node *newWhereIs = this->board->totalNodes[player->whereIs->nodes[n]->id];
+                if(newWhereIs->type2 == "Juego"){ //JUEGO
+                    if(newWhereIs->type == "Sopa De Letras"){
+                        //Juega sopa de letras
+                    }else if(newWhereIs->type == "Gato"){
+                        //Juega Gato
+                    }else if (newWhereIs->type == "Memorizar Direccion"){
+                        //Juega Memorizar direccion
+                    }else if(newWhereIs->type == "Memorizar Items"){
+                        //Juega Memorizar Items
+                    }else if (newWhereIs->type == "Atrapar El Gato"){
+                        //Juega Atrapar el gato
+                    }else if (newWhereIs->type == "Bomber Mario"){
+                        //Juega Bomber mario.
+                    }else if(newWhereIs->type == "Quien Es?"){
+                        //Juega Quien es?
+                    }else if(newWhereIs->type == "Rejunta Monedas"){
+                        //Juega rehuntq monedas
+                    }else if(newWhereIs->type == "Cartas"){
+                        //Juega cartas
+                    }
+                }else {//COMODINES O CASTIGOS
+                    move(player,newWhereIs);
+                    //CASO TUBOS
+                    if(player->whereIs->type == "Tubos1"){
+                        msgBox.setWindowTitle("Tubos");
+                        msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube2->id+1));
+                        msgBox.setIconPixmap(player->icon);
+                        msgBox.exec();
+                        move(player,this->board->tube2);
+                    }else if (player->whereIs->type == "Tubos2") {
+                        msgBox.setWindowTitle("Tubos");
+                        msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube3->id+1));
+                        msgBox.setIconPixmap(player->icon);
+                        msgBox.exec();
+                        move(player,this->board->tube3);
+                    }else if (player->whereIs->type == "Tubos3") {
+                        msgBox.setWindowTitle("Tubos");
+                        msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube1->id+1));
+                        msgBox.setIconPixmap(player->icon);
+                        msgBox.exec();
+                        move(player,this->board->tube1);
+                    }
+                    //CASO CARCEL
+                    else if (player->whereIs->type == "Carcel") {
+                        msgBox.setWindowTitle("Carcel");
+                        msgBox.setText(player->name+" ha caido en la carcel por lo que perdera 2 turnos");
+                        msgBox.setIconPixmap(player->icon);
+                        player->blocked = player->blocked+2;
+                        msgBox.exec();
+                    }
+                    //CASO ESTRELLA
+                    else if (player->whereIs->type == "Estrella") {
+                        msgBox.setWindowTitle("Estrella");
+                        msgBox.setText(player->name+" ha caido en Estrella por lo que jugara de nuevo");
+                        msgBox.setIconPixmap(player->icon);
+                        this->pos--;
+                        msgBox.exec();
+                    }
+                    //CASO FLOR DE FUEGO.
+                    else if (player->whereIs->type == "Flor De Fuego") {
+                        ui->select->show();
+                        this->select = 1;
+                        msgBox.setWindowTitle("Flor de fuego");
+                        msgBox.setText(player->name+" ha caido en Flor De Fuego, puedes escoger a un jugador para que empiece desde cero.");
+                        msgBox.setIconPixmap(player->icon);
+                        msgBox.exec();
+                        this->ui->throwB->hide();
+                    }
+                    //CASO FLOR DE HIELO.
+                    else if (player->whereIs->type == "Flor De Hielo") {
+                        ui->select->show();
+                        this->select = 2;
+                        msgBox.setWindowTitle("Flor De Hielo");
+                        msgBox.setText(player->name+" ha caido en Flor De Hielo, puedes escoger a un jugador para que pierda dos turnos.");
+                        msgBox.setIconPixmap(player->icon);
+                        msgBox.exec();
+                        this->ui->throwB->hide();
+                    }
                 }
+                bool winner = true;
+                for(bool check:player->nodesVisited){
+                    if(check == false){
+                        winner = false;
+                        break;
+                    }
+                }
+                if(winner == true){
+                    this->msgBox.setWindowTitle("Ganador");
+                    this->msgBox.setIconPixmap(player->icon);
+                    this->msgBox.setText(player->name);
+                    this->msgBox.exec();
+                }
+                break;
             }
-            if(winner == true){
-                this->msgBox.setWindowTitle("Ganador");
-                this->msgBox.setIconPixmap(player->icon);
-                this->msgBox.setText(player->name);
-                this->msgBox.exec();
-            }
-            break;
         }
     }
-
     QLabel *playerName = this->names[this->pos];
     playerName->setStyleSheet("color:white");
     if(this->pos == this->quantPlayers-1){
@@ -219,20 +303,48 @@ void GameWindow::throwDices()
 
 void GameWindow::showPlayerInfo(int b)
 {
-    msgBox.setText("");
     Player *player = playerList[b];
-    msgBox.setWindowTitle(player->name);
-    msgBox.setWindowIcon(player->icon);
-    msgBox.setText(msgBox.text()+"Casilla Actual: "+QString::number(player->whereIs->id+1)+"\n");
-    msgBox.setText(msgBox.text()+"Casillas visitadas: ");
-    for(int b = 0 ; b < 26 ; b++){
-        bool visited = player->nodesVisited[b];
-        if(visited){
-            msgBox.setText(msgBox.text()+QString::number(this->board->totalNodes[b]->id+1)+"-");
+    if(this->select == 0){
+        msgBox.setText("");
+        msgBox.setWindowTitle(player->name);
+        msgBox.setIconPixmap(player->icon);
+        msgBox.setText(msgBox.text()+"Casilla Actual: "+QString::number(player->whereIs->id+1)+"\n");
+        msgBox.setText(msgBox.text()+"Casillas visitadas: ");
+        for(int b = 0 ; b < 26 ; b++){
+            bool visited = player->nodesVisited[b];
+            if(visited){
+                msgBox.setText(msgBox.text()+QString::number(this->board->totalNodes[b]->id+1)+"-");
+            }
         }
+        msgBox.setText(msgBox.text()+"\n");
+        msgBox.setText(msgBox.text()+"Turnos Bloqueados: "+QString::number(player->blocked));
+        msgBox.setText(msgBox.text()+"\n");
+        msgBox.exec();
+    }else if(this->select == 1){
+        ui->select->hide();
+        this->select = 0;
+        msgBox.setWindowTitle(player->name+" empieza desde cero.");
+        msgBox.setIconPixmap(player->icon);
+        msgBox.setText("Empezaras desde cero.");
+        Player *newOne = new Player(player->name,player->icon,0);
+        newOne->whereIs = player->whereIs;
+        newOne->row = player->row;
+        newOne->column = player->column;
+        newOne->nodesVisited[newOne->whereIs->id] = true;
+        playerList[b] = newOne;
+        this->ui->throwB->show();
+        msgBox.exec();
+    }else{
+        ui->select->hide();
+        this->select = 0;
+        msgBox.setWindowTitle(player->name+" bloqueado.");
+        msgBox.setIconPixmap(player->icon);
+        msgBox.setText("Perderas dos turnos.");
+        player->blocked = player->blocked+2;
+        this->ui->throwB->show();
+        msgBox.exec();
     }
-    msgBox.setText(msgBox.text()+"\n");
-    msgBox.exec();
+
 }
 
 void GameWindow::showMatrix()

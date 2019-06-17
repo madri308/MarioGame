@@ -7,8 +7,4 @@ Player::Player(QString name, QPixmap icon, int numbRand)
     this->numbRand = numbRand;
 }
 
-void Player::update(Node *whereIs, int visited)
-{
-    this->whereIs = whereIs;
-    this->nodesVisited[visited] = true;
-}
+

@@ -20,6 +20,7 @@ public:
     int row = 0;
     int column = 0;
     void update(Node *whereIs, int visited);
+    int blocked = 0;
 };
 
 #endif // PLAYER_H

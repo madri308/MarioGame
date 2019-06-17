@@ -29,12 +29,13 @@ public:
     QMessageBox msgBox;
 
     int pos = 0;
+    int select = 0;
 
     QGridLayout *CImages[26];
     QLabel *CNames[26];
 
     void start();
-    void move(Player *whereIs,int newPos);
+    void move(Player *whereIs,Node *newPos);
 public slots:
     void throwDices();
     void showPlayerInfo(int b);
