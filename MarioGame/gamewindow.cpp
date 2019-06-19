@@ -12,7 +12,10 @@
 #include "guesswhowindow.h"
 #include "bomberwindow.h"
 #include "QString"
-
+#include "QtDebug"
+#include "pathwindow.h"
+#include "wordsearchwindow.h"
+#include "choosecardwindow.h"
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
     ui(new Ui::GameWindow)
@@ -226,6 +229,10 @@ void GameWindow::throwDices()
                         if(newWhereIs->type2 == "Juego"){ //JUEGO
                             if(newWhereIs->type == "Sopa De Letras"){
                                 //Juega sopa de letras
+                                WordSearchWindow *w = new WordSearchWindow();
+                                w->g = this;
+                                w->show();
+                                this->hide();
                             }else if(newWhereIs->type == "Gato"){
                                 //Juega Gato
                                 int r = rand() % this->quantPlayers;
@@ -243,12 +250,16 @@ void GameWindow::throwDices()
                                 this->hide();
                             }else if (newWhereIs->type == "Memorizar Direccion"){
                                 //Juega Memorizar direccion
+                                PathWindow *c = new PathWindow();
+                                c->g = this;
+                                c->show();
+                                this->hide();
                             }else if(newWhereIs->type == "Memorizar Items"){
                                 //Juega Memorizar Items
                             }else if (newWhereIs->type == "Atrapar El Gato"){
                                 //Juega Atrapar el gato
                             }else if (newWhereIs->type == "Bomber Mario"){
-                                GuessWhoWindow *c = new GuessWhoWindow();
+                                BomberWindow *c = new BomberWindow();
                                 c->g = this;
                                 c->show();
                                 this->hide();
@@ -264,6 +275,10 @@ void GameWindow::throwDices()
                                 this->hide();
                             }else if(newWhereIs->type == "Cartas"){
                                 //Juega cartas
+                                ChooseCardWindow *c = new ChooseCardWindow();
+                                c->g = this;
+                                c->show();
+                                this->hide();
                             }
                         }else {//COMODINES O CASTIGOS
                             move(player,newWhereIs);

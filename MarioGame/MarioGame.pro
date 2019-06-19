@@ -25,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    card.cpp \
+    choosecardwindow.cpp \
         main.cpp \
         gamewindow.cpp \
     board.cpp \
@@ -37,9 +39,12 @@ SOURCES += \
     bomberwindow.cpp \
     coinswindow.cpp \
     guesswhowindow.cpp \
-    pathwindow.cpp
+    pathwindow.cpp \
+    wordsearchwindow.cpp
 
 HEADERS += \
+    card.h \
+    choosecardwindow.h \
         gamewindow.h \
     board.h \
     node.h \
@@ -51,9 +56,11 @@ HEADERS += \
     bomberwindow.h \
     coinswindow.h \
     guesswhowindow.h \
-    pathwindow.h
+    pathwindow.h \
+    wordsearchwindow.h
 
 FORMS += \
+    choosecardwindow.ui \
         gamewindow.ui \
     startwindow.ui \
     choosewindow.ui \
@@ -63,7 +70,8 @@ FORMS += \
     coinswindow.ui \
     guesswhowindow.ui \
     mainwindow.ui \
-    pathwindow.ui
+    pathwindow.ui \
+    wordsearchwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

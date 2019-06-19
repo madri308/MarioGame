@@ -15,9 +15,9 @@ class PathWindow : public QMainWindow
 public:
     explicit PathWindow(QWidget *parent = nullptr);
     QPushButton *matrix[8][3];
-    bool won;
-
+    int counter = 0;
     void generateMatrix();
+    void randomize();
     GameWindow *g;
     ~PathWindow();
 

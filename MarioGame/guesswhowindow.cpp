@@ -13,7 +13,7 @@ GuessWhoWindow::GuessWhoWindow(QWidget *parent) :
     srand(time(NULL));
     ui->setupUi(this);
     int randIndex = rand()%15;
-    currentCharacter = characters[14];
+    currentCharacter = characters[randIndex];
     qDebug() << currentCharacter;
     QPixmap background(currentCharacter);
     ui->label->setPixmap(background);
@@ -87,6 +87,7 @@ void GuessWhoWindow::on_luigi_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -122,6 +123,7 @@ void GuessWhoWindow::on_peach_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -156,6 +158,7 @@ void GuessWhoWindow::on_pushButton_3_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -189,6 +192,7 @@ void GuessWhoWindow::on_pushButton_2_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -236,6 +240,7 @@ void GuessWhoWindow::on_Boo_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -255,6 +260,7 @@ void GuessWhoWindow::on_toad_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -288,6 +294,7 @@ void GuessWhoWindow::on_yoshi_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -321,6 +328,7 @@ void GuessWhoWindow::on_bowser_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -354,6 +362,7 @@ void GuessWhoWindow::on_koopa_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -387,6 +396,7 @@ void GuessWhoWindow::on_birdo_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -420,6 +430,7 @@ void GuessWhoWindow::on_KingBoo_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -453,6 +464,7 @@ void GuessWhoWindow::on_mario_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -486,6 +498,7 @@ void GuessWhoWindow::on_goomba_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -519,6 +532,7 @@ void GuessWhoWindow::on_Floruga_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }
@@ -554,6 +568,7 @@ void GuessWhoWindow::on_magikoopa_clicked()
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
         g->move(g->player,g->newWhereIs);
+        g->pos--;
         g->showMaximized();
         this->hide();
     }

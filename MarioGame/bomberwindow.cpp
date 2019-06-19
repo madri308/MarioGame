@@ -26,7 +26,7 @@ void BomberWindow::setMatrixSize()
     srand(time(NULL));
     int possibilities[3] = {10,15,20};
     int randSize = rand()%3;
-    matrixSize = 20;
+    matrixSize = possibilities[randSize];
     qDebug() << matrixSize;
 }
 
@@ -178,7 +178,14 @@ void BomberWindow::onButtonClicked()
                 }
                 if(globalE == 4)
                 {
-                    QMessageBox::information(this,tr("Felicidades"),tr("Has ganado"));
+                    g->msgBox.setWindowTitle("Ganaste");
+                    g->msgBox.setText("Has encontrado el tesoro");
+                    g->msgBox.setIconPixmap(g->player->icon);
+                    g->msgBox.exec();
+                    g->move(g->player,g->newWhereIs);
+                    g->pos--;
+                    g->showMaximized();
+                    this->hide();
                 }
             }
             else if(matrixSize == 15)
@@ -221,9 +228,14 @@ void BomberWindow::onButtonClicked()
                 }
                 if(globalE == 4)
                 {
-                    QMessageBox::information(this,tr("Felicidades"),tr("Has ganado"));
-                    won = true;
-                    ui->goback->show();
+                    g->msgBox.setWindowTitle("Ganaste");
+                    g->msgBox.setText("Has encontrado el tesoro");
+                    g->msgBox.setIconPixmap(g->player->icon);
+                    g->msgBox.exec();
+                    g->move(g->player,g->newWhereIs);
+                    g->pos--;
+                    g->showMaximized();
+                    this->hide();
                 }
             }
             else if(matrixSize == 20)
@@ -266,9 +278,14 @@ void BomberWindow::onButtonClicked()
                 }
                 if(globalE == 4)
                 {
-                    QMessageBox::information(this,tr("Felicidades"),tr("Has ganado"));
-                    won = true;
-                    ui->goback->show();
+                    g->msgBox.setWindowTitle("Ganaste");
+                    g->msgBox.setText("Has encontrado el tesoro");
+                    g->msgBox.setIconPixmap(g->player->icon);
+                    g->msgBox.exec();
+                    g->move(g->player,g->newWhereIs);
+                    g->pos--;
+                    g->showMaximized();
+                    this->hide();
                 }
             }
         }
@@ -278,13 +295,22 @@ void BomberWindow::onButtonClicked()
         QMessageBox::information(this,tr(""),tr("Te has quedado sin bombas"));
         if(globalE == 4)
         {
-            won = true;
-            QMessageBox::information(this,tr("Felicidades"),tr("Has ganado"));
-            ui->goback->show();
+            g->msgBox.setWindowTitle("Ganaste");
+            g->msgBox.setText("Has encontrado el tesoro");
+            g->msgBox.setIconPixmap(g->player->icon);
+            g->msgBox.exec();
+            g->move(g->player,g->newWhereIs);
+            g->pos--;
+            g->showMaximized();
+            this->hide();
         }
         else {
-            QMessageBox::critical(this,tr("Lo siento"),tr("Has perdido"));
-            ui->goback->show();
+            g->msgBox.setWindowTitle("Perdiste");
+            g->msgBox.setText("No has encontrado el tesoro");
+            g->msgBox.setIconPixmap(g->player->icon);
+            g->msgBox.exec();
+            g->showMaximized();
+            this->hide();
         }
     }
 }
