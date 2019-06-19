@@ -40,7 +40,8 @@ SOURCES += \
     coinswindow.cpp \
     guesswhowindow.cpp \
     pathwindow.cpp \
-    wordsearchwindow.cpp
+    wordsearchwindow.cpp\
+    memorywindow.cpp
 
 HEADERS += \
     card.h \
@@ -57,7 +58,8 @@ HEADERS += \
     coinswindow.h \
     guesswhowindow.h \
     pathwindow.h \
-    wordsearchwindow.h
+    wordsearchwindow.h \
+    memorywindow.h
 
 FORMS += \
     choosecardwindow.ui \
@@ -71,7 +73,8 @@ FORMS += \
     guesswhowindow.ui \
     mainwindow.ui \
     pathwindow.ui \
-    wordsearchwindow.ui
+    wordsearchwindow.ui\
+    memorywindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

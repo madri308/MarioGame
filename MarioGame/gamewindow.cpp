@@ -16,6 +16,7 @@
 #include "pathwindow.h"
 #include "wordsearchwindow.h"
 #include "choosecardwindow.h"
+#include "memorywindow.h"
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
     ui(new Ui::GameWindow)
@@ -276,9 +277,20 @@ void GameWindow::throwDices()
                                     c->show();
                                     this->hide();
                                 }else if(newWhereIs->type == "Memorizar Items"){
-                                    //Juega Memorizar Items
+                                    int r = rand() % this->quantPlayers;
+                                    Player *randPlayer = this->playerList[r];
+                                    while(randPlayer->name == player->name){
+                                        r = rand() % this->quantPlayers;
+                                        randPlayer = this->playerList[r];
+                                    }
+                                    MemoryWindow *c = new MemoryWindow();
+                                    c->player2->setPixmap(player->icon);
+                                    c->player1->setPixmap(randPlayer->icon);
+                                    c->g = this;
+                                    c->show();
+                                    this->hide();
                                 }else if (newWhereIs->type == "Atrapar El Gato"){
-                                    //Juega Atrapar el gato
+                                    showMinWin("Lo sentimos, en este momento no esta funcionando",player->icon,"En mantenimiento");
                                 }else if (newWhereIs->type == "Bomber Mario"){
                                     BomberWindow *c = new BomberWindow();
                                     c->g = this;
