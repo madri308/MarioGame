@@ -43,6 +43,7 @@ public:
     int minDistance(int dist[],bool sptSet[]);
     int showSolution(int dist[],int n, int src);
     QString dijkstra(int graph[26][26],int src,bool visited[26]);
+    void floyds(int graph[26][26],int p);
 };
 
 #endif // BOARD_H

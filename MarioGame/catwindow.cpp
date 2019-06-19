@@ -64,8 +64,9 @@ void CatWindow::changeState(int row,int column)
             g->msgBox.setText("Ganaste");
             g->msgBox.setIconPixmap(*ui->label->pixmap());
             g->msgBox.exec();
-            g->move(g->player,g->newWhereIs);
+            g->player->won = true;
             g->pos--;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
         }else {
@@ -74,6 +75,8 @@ void CatWindow::changeState(int row,int column)
                 g->msgBox.setText("Perdiste");
                 g->msgBox.setIconPixmap(*ui->label->pixmap());
                 g->msgBox.exec();
+                g->player->won = false;
+                g->move(g->player,g->newWhereIs);
                 g->showMaximized();
                 this->hide();
             }else{

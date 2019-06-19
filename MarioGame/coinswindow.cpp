@@ -71,6 +71,8 @@ void CoinsWindow::updateCountdown()
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
+            g->player->won = true;
+            g->move(g->player,g->newWhereIs);
             g->pos--;
             g->showMaximized();
             this->hide();
@@ -80,6 +82,8 @@ void CoinsWindow::updateCountdown()
             g->msgBox.setText("Has perdido, tu cuenta de monedas es: " + QString::number(playerCoinCount));
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
+            g->player->won = false;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
         }

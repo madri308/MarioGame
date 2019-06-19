@@ -78,6 +78,7 @@ void ChooseCardWindow::chooseCards()
         g->msgBox.setText("Tu carta fue un "+playerCard->name+" de "+playerCard->type+" y la carta mayor fue un "+cards[0]->name+" de "+cards[0]->type);
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -88,6 +89,8 @@ void ChooseCardWindow::chooseCards()
         g->msgBox.setText("Tu carta fue un "+playerCard->name+" de "+playerCard->type+" y la carta mayor fue un "+cards[0]->name+" de "+cards[0]->type);
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
+        g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
     }

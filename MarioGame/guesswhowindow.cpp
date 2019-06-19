@@ -86,6 +86,7 @@ void GuessWhoWindow::on_luigi_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -102,6 +103,7 @@ void GuessWhoWindow::on_luigi_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -122,6 +124,7 @@ void GuessWhoWindow::on_peach_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -138,6 +141,7 @@ void GuessWhoWindow::on_peach_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -157,6 +161,7 @@ void GuessWhoWindow::on_pushButton_3_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -172,6 +177,7 @@ void GuessWhoWindow::on_pushButton_3_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -191,6 +197,7 @@ void GuessWhoWindow::on_pushButton_2_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -206,6 +213,7 @@ void GuessWhoWindow::on_pushButton_2_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -225,6 +233,7 @@ void GuessWhoWindow::on_Boo_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -239,6 +248,7 @@ void GuessWhoWindow::on_Boo_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -259,6 +269,7 @@ void GuessWhoWindow::on_toad_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -274,6 +285,7 @@ void GuessWhoWindow::on_toad_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -293,6 +305,7 @@ void GuessWhoWindow::on_yoshi_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -308,6 +321,7 @@ void GuessWhoWindow::on_yoshi_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -327,6 +341,7 @@ void GuessWhoWindow::on_bowser_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -342,6 +357,7 @@ void GuessWhoWindow::on_bowser_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -361,6 +377,7 @@ void GuessWhoWindow::on_koopa_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -376,6 +393,7 @@ void GuessWhoWindow::on_koopa_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -395,6 +413,7 @@ void GuessWhoWindow::on_birdo_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -410,6 +429,7 @@ void GuessWhoWindow::on_birdo_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -429,6 +449,7 @@ void GuessWhoWindow::on_KingBoo_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -444,6 +465,7 @@ void GuessWhoWindow::on_KingBoo_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -463,6 +485,7 @@ void GuessWhoWindow::on_mario_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -478,6 +501,7 @@ void GuessWhoWindow::on_mario_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -497,6 +521,7 @@ void GuessWhoWindow::on_goomba_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -512,6 +537,7 @@ void GuessWhoWindow::on_goomba_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -531,6 +557,7 @@ void GuessWhoWindow::on_Floruga_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -547,6 +574,7 @@ void GuessWhoWindow::on_Floruga_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
@@ -567,6 +595,7 @@ void GuessWhoWindow::on_magikoopa_clicked()
         g->msgBox.setText("¡Has adivinado correctamente!");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = true;
         g->move(g->player,g->newWhereIs);
         g->pos--;
         g->showMaximized();
@@ -583,6 +612,7 @@ void GuessWhoWindow::on_magikoopa_clicked()
         g->msgBox.setText("No has adivinado correctamente :(");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
         g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();

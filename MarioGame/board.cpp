@@ -124,3 +124,34 @@ QString Board::dijkstra(int graph[26][26], int src,bool visited[26])
     }
     return text;
 }
+
+void Board::floyds(int graphOr[26][26], int p){
+    int graph[26][26];
+    for(int r = 0 ; r<26 ; r++){
+        for(int c = 0 ;c<26 ; c++){
+            graph[r][c] = graphOr[r][c];
+        }
+    }
+    int i, j, k;
+    for (k = 0; k < 26; k++){
+            for (i = 0; i < 26; i++){
+                for (j = 0; j < 26; j++){
+                    if ((graph[i][k] * graph[k][j] != 0) && (i != j)){
+                        if ((graph[i][k] + graph[k][j] < graph[i][j]) || (graph[i][j] == 0))
+                        {
+                            graph[i][j] = graph[i][k] + graph[k][j];
+                        }
+                    }
+                }
+            }
+        }
+        for (i = 0; i < 26; i++){
+            if(i == p){
+                std::cout<<"nMinimum Cost With Respect to Node:"<<i<<std::endl;
+                for (j = 0; j < 26; j++){
+                    std::cout<<graph[i][j]<<"       ";
+                }
+                std::cout<<""<<std::endl;
+            }
+        }
+}

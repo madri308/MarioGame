@@ -104,8 +104,9 @@ void PathWindow::onButtonClicked()
             g->msgBox.setText("¡Has adivinado el camino correctamente!");
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
+            g->player->won = true;
             g->move(g->player,g->newWhereIs);
-            //g->pos--;
+            g->pos--;
             g->showMaximized();
             this->hide();
         }
@@ -115,6 +116,8 @@ void PathWindow::onButtonClicked()
         g->msgBox.setText("No has adivinado correctamente");
         g->msgBox.setIconPixmap(g->player->icon);
         g->msgBox.exec();
+        g->player->won = false;
+        g->move(g->player,g->newWhereIs);
         g->showMaximized();
         this->hide();
     }

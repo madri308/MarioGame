@@ -182,8 +182,9 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setText("Has encontrado el tesoro");
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
-                    g->move(g->player,g->newWhereIs);
+                    g->player->won = true;
                     g->pos--;
+                    g->move(g->player,g->newWhereIs);
                     g->showMaximized();
                     this->hide();
                 }
@@ -232,8 +233,9 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setText("Has encontrado el tesoro");
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
-                    g->move(g->player,g->newWhereIs);
+                    g->player->won = true;
                     g->pos--;
+                    g->move(g->player,g->newWhereIs);
                     g->showMaximized();
                     this->hide();
                 }
@@ -282,8 +284,9 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setText("Has encontrado el tesoro");
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
-                    g->move(g->player,g->newWhereIs);
+                    g->player->won = true;
                     g->pos--;
+                    g->move(g->player,g->newWhereIs);
                     g->showMaximized();
                     this->hide();
                 }
@@ -299,8 +302,8 @@ void BomberWindow::onButtonClicked()
             g->msgBox.setText("Has encontrado el tesoro");
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
-            g->move(g->player,g->newWhereIs);
             g->pos--;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
         }
@@ -309,6 +312,8 @@ void BomberWindow::onButtonClicked()
             g->msgBox.setText("No has encontrado el tesoro");
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
+            g->player->won = false;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
         }

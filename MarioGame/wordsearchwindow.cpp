@@ -224,6 +224,8 @@ void WordSearchWindow::OnClicked()
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
             g->pos--;
+            g->player->won = true;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
             timer->stop();
@@ -233,6 +235,8 @@ void WordSearchWindow::OnClicked()
             g->msgBox.setText("Has perdido");
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
+            g->player->won = false;
+            g->move(g->player,g->newWhereIs);
             g->showMaximized();
             this->hide();
             timer->stop();

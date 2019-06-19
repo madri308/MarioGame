@@ -22,6 +22,7 @@ public:
     int column = 0;
     void update(Node *whereIs, int visited);
     int blocked = 0;
+    bool won = true;
 };
 
 #endif // PLAYER_H
