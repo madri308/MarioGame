@@ -1,8 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
-
 #include "node.h"
-
+#include "QString"
 struct Board
 {
 public:
@@ -40,6 +39,10 @@ public:
     Node *tube1 = nullptr;
     Node *tube2 = nullptr;
     Node *tube3 = nullptr;
+    int V = 26;
+    int minDistance(int dist[],bool sptSet[]);
+    int showSolution(int dist[],int n, int src);
+    QString dijkstra(int graph[26][26],int src,bool visited[26]);
 };
 
 #endif // BOARD_H

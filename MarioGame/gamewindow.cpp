@@ -9,6 +9,7 @@
 #include "QGroupBox"
 #include "catwindow.h"
 #include "coinswindow.h"
+#include "QString"
 
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
@@ -176,32 +177,31 @@ void GameWindow::move(Player *player, Node *newWhereIs)
     }
 }
 
+void GameWindow::showMinWin(QString text, QPixmap icon, QString title)
+{
+    msgBox.setWindowTitle(title);
+    msgBox.setIconPixmap(icon);
+    msgBox.setText(text);
+    msgBox.exec();
+}
+
 void GameWindow::throwDices()
 {
     player = this->playerList[this->pos];
     //SI HA PERDIDO ALGUN TURNO.
     if(player->blocked != 0){
         player->blocked = player->blocked-1;
-        msgBox.setWindowTitle("Estas bloqueado");
-        msgBox.setIconPixmap(player->icon);
-        msgBox.setText("Aun no puedes jugar, ahora estas bloqueado por "+QString::number(player->blocked)+" turnos.");
-        msgBox.exec();
+        showMinWin("Aun no puedes jugar, ahora estas bloqueado por "+QString::number(player->blocked)+" turnos.",player->icon,"Estas Bloqueado");
     }else{
         int dice1 = rand() % 8;  // in the range of 0 - 7
         int dice2 = rand() % 8;  // in the range of 0 - 7
         if(dice1 == 80){
             if(dice2 == 7){
-                msgBox.setWindowTitle("Estas bloqueado");
-                msgBox.setIconPixmap(player->icon);
-                msgBox.setText("Sacaste 7 en ambos dados por lo que perderas 3 turnos");
+                showMinWin("Sacaste 7 en un dado por lo que perderas dos turnos",player->icon,"Estas Bloqueado");
                 player->blocked = player->blocked+3;
-                msgBox.exec();
             }else{
-                msgBox.setWindowTitle("Estas bloqueado");
-                msgBox.setIconPixmap(player->icon);
+                showMinWin("Sacaste 7 en un dado por lo que perderas un turno",player->icon,"Estas Bloqueado");
                 player->blocked = player->blocked+1;
-                msgBox.setText("Sacaste 7 en un dado por lo que perderas un turno más");
-                msgBox.exec();
             }
         }else{
             int totalDice = dice1+dice2;
@@ -246,58 +246,37 @@ void GameWindow::throwDices()
                         move(player,newWhereIs);
                         //CASO TUBOS
                         if(player->whereIs->type == "Tubos1"){
-                            msgBox.setWindowTitle("Tubos");
-                            msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube2->id+1));
-                            msgBox.setIconPixmap(player->icon);
-                            msgBox.exec();
+                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube2->id+1),player->icon,"Tubos");
                             move(player,this->board->tube2);
                         }else if (player->whereIs->type == "Tubos2") {
-                            msgBox.setWindowTitle("Tubos");
-                            msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube3->id+1));
-                            msgBox.setIconPixmap(player->icon);
-                            msgBox.exec();
+                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube3->id+1),player->icon,"Tubos");
                             move(player,this->board->tube3);
                         }else if (player->whereIs->type == "Tubos3") {
-                            msgBox.setWindowTitle("Tubos");
-                            msgBox.setText(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube1->id+1));
-                            msgBox.setIconPixmap(player->icon);
-                            msgBox.exec();
+                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube1->id+1),player->icon,"Tubos");
                             move(player,this->board->tube1);
                         }
                         //CASO CARCEL
                         else if (player->whereIs->type == "Carcel") {
-                            msgBox.setWindowTitle("Carcel");
-                            msgBox.setText(player->name+" ha caido en la carcel por lo que perdera 2 turnos");
-                            msgBox.setIconPixmap(player->icon);
+                            showMinWin(player->name+" ha caido en la carcel por lo que perdera 2 turnos",player->icon,"Carcel");
                             player->blocked = player->blocked+2;
-                            msgBox.exec();
                         }
                         //CASO ESTRELLA
                         else if (player->whereIs->type == "Estrella") {
-                            msgBox.setWindowTitle("Estrella");
-                            msgBox.setText(player->name+" ha caido en Estrella por lo que jugara de nuevo");
-                            msgBox.setIconPixmap(player->icon);
+                            showMinWin(player->name+" ha caido en Estrella por lo que jugara de nuevo",player->icon,"Estrella");
                             this->pos--;
-                            msgBox.exec();
                         }
                         //CASO FLOR DE FUEGO.
                         else if (player->whereIs->type == "Flor De Fuego") {
                             ui->select->show();
                             this->select = 1;
-                            msgBox.setWindowTitle("Flor de fuego");
-                            msgBox.setText(player->name+" ha caido en Flor De Fuego, puedes escoger a un jugador para que empiece desde cero.");
-                            msgBox.setIconPixmap(player->icon);
-                            msgBox.exec();
+                            showMinWin(player->name+" ha caido en Flor De Fuego, puedes escoger a un jugador para que empiece desde cero.",player->icon,"Flor de fuego");
                             this->ui->throwB->hide();
                         }
                         //CASO FLOR DE HIELO.
                         else if (player->whereIs->type == "Flor De Hielo") {
                             ui->select->show();
                             this->select = 2;
-                            msgBox.setWindowTitle("Flor De Hielo");
-                            msgBox.setText(player->name+" ha caido en Flor De Hielo, puedes escoger a un jugador para que pierda dos turnos.");
-                            msgBox.setIconPixmap(player->icon);
-                            msgBox.exec();
+                            showMinWin(player->name+" ha caido en Flor De Hielo, puedes escoger a un jugador para que pierda dos turnos.",player->icon,"Flor De Hielo");
                             this->ui->throwB->hide();
                         }
                     }
@@ -309,10 +288,7 @@ void GameWindow::throwDices()
                         }
                     }
                     if(winner == true){
-                        this->msgBox.setWindowTitle("Ganador");
-                        this->msgBox.setIconPixmap(player->icon);
-                        this->msgBox.setText(player->name);
-                        this->msgBox.exec();
+                        showMinWin(player->name,player->icon,"Ganador");
                     }
                     break;
                 }
@@ -334,27 +310,20 @@ void GameWindow::showPlayerInfo(int b)
 {
     Player *player = playerList[b];
     if(this->select == 0){
-        msgBox.setText("");
-        msgBox.setWindowTitle(player->name);
-        msgBox.setIconPixmap(player->icon);
-        msgBox.setText(msgBox.text()+"Casilla Actual: "+QString::number(player->whereIs->id+1)+"\n");
-        msgBox.setText(msgBox.text()+"Casillas visitadas: ");
+        QString text = "Casilla Actual: "+QString::number(player->whereIs->id+1)+"\nCasillas visitadas: ";
         for(int b = 0 ; b < 26 ; b++){
             bool visited = player->nodesVisited[b];
             if(visited){
-                msgBox.setText(msgBox.text()+QString::number(this->board->totalNodes[b]->id+1)+"-");
+                text = text+QString::number(this->board->totalNodes[b]->id+1)+"-";
             }
         }
-        msgBox.setText(msgBox.text()+"\n");
-        msgBox.setText(msgBox.text()+"Turnos Bloqueados: "+QString::number(player->blocked));
-        msgBox.setText(msgBox.text()+"\n");
-        msgBox.exec();
+        text = text+"\nTurnos Bloqueados: "+QString::number(player->blocked)+"\n";
+        text = text+this->board->dijkstra(this->board->adjMatrix,player->whereIs->id,player->nodesVisited);
+        showMinWin(text,player->icon,player->name);
     }else if(this->select == 1){
         ui->select->hide();
         this->select = 0;
-        msgBox.setWindowTitle(player->name+" empieza desde cero.");
-        msgBox.setIconPixmap(player->icon);
-        msgBox.setText("Empezaras desde cero.");
+        showMinWin("Empezaras desde cero.",player->icon,player->name+" empieza desde cero.");
         Player *newOne = new Player(player->name,player->icon,0);
         newOne->whereIs = player->whereIs;
         newOne->row = player->row;
@@ -362,16 +331,12 @@ void GameWindow::showPlayerInfo(int b)
         newOne->nodesVisited[newOne->whereIs->id] = true;
         playerList[b] = newOne;
         this->ui->throwB->show();
-        msgBox.exec();
     }else{
         ui->select->hide();
         this->select = 0;
-        msgBox.setWindowTitle(player->name+" bloqueado.");
-        msgBox.setIconPixmap(player->icon);
-        msgBox.setText("Perderas dos turnos.");
+        showMinWin("Perderas dos turnos.",player->icon,player->name+" bloqueado.");
         player->blocked = player->blocked+2;
         this->ui->throwB->show();
-        msgBox.exec();
     }
 
 }
