@@ -9,6 +9,8 @@
 #include "QGroupBox"
 #include "catwindow.h"
 #include "coinswindow.h"
+#include "guesswhowindow.h"
+#include "bomberwindow.h"
 
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
@@ -231,9 +233,15 @@ void GameWindow::throwDices()
                         }else if (newWhereIs->type == "Atrapar El Gato"){
                             //Juega Atrapar el gato
                         }else if (newWhereIs->type == "Bomber Mario"){
-                            //Juega Bomber mario.
+                            GuessWhoWindow *c = new GuessWhoWindow();
+                            c->g = this;
+                            c->show();
+                            this->hide();
                         }else if(newWhereIs->type == "Quien Es?"){
-                            //Juega Quien es?
+                            GuessWhoWindow *c = new GuessWhoWindow();
+                            c->g = this;
+                            c->show();
+                            this->hide();
                         }else if(newWhereIs->type == "Rejunta Monedas"){
                             CoinsWindow *c = new CoinsWindow();
                             c->g = this;
