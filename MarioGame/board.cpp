@@ -117,9 +117,9 @@ QString Board::dijkstra(int graph[26][26], int src,bool visited[26])
     QString text = QString::fromStdString("\nDistancia Minima desde la casilla "+QString::number(src+1).toStdString()+" hasta la casilla:");
     for (int i = 0; i < V; i++){
         if(visited[i] == true){
-            text = text+QString::fromStdString("\n"+QString::number(i+1).toStdString()+" esta visitada");
+            text = text+QString::fromStdString("\n  "+QString::number(i+1).toStdString()+" esta visitada");
         }else{
-            text = text+QString::fromStdString("\n"+QString::number(i+1).toStdString()+" es de: "+QString::number(dist[i]).toStdString());
+            text = text+QString::fromStdString("\n  "+QString::number(i+1).toStdString()+" es de: "+QString::number(dist[i]).toStdString());
         }
     }
     return text;

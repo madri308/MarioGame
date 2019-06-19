@@ -194,9 +194,12 @@ void GameWindow::throwDices()
         showMinWin("Aun no puedes jugar, ahora estas bloqueado por "+QString::number(player->blocked)+" turnos.",player->icon,"Estas Bloqueado");
     }else{
         int dice1 = rand() % 8;  // in the range of 0 - 7
-        int dice2 = rand() % 8;  // in the range of 0 - 7
-        if(dice1 == 80){
-            if(dice2 == 7){
+        int dice2 = rand() % 8;  // in the range of 0 - 7int totalDice = dice1+dice2;
+        int totalDice = dice1+dice2;
+        this->ui->diceResult->wordWrap();
+        this->ui->diceResult->setText(QString::number(dice1) + " + " + QString::number(dice2) + " = " + QString::number(totalDice));
+        if(dice1 == 7 || dice2 == 7){
+            if(dice2 == 7 && dice1 == 7){
                 showMinWin("Sacaste 7 en un dado por lo que perderas dos turnos",player->icon,"Estas Bloqueado");
                 player->blocked = player->blocked+3;
             }else{
@@ -204,9 +207,6 @@ void GameWindow::throwDices()
                 player->blocked = player->blocked+1;
             }
         }else{
-            int totalDice = dice1+dice2;
-            this->ui->diceResult->wordWrap();
-            this->ui->diceResult->setText(QString::number(dice1) + " + " + QString::number(dice2) + " = " + QString::number(totalDice));
             for(int n = 0 ; n<player->whereIs->ways ; n++){
                 if(player->whereIs->values[n] == totalDice){
                     newWhereIs = this->board->totalNodes[player->whereIs->nodes[n]->id];
@@ -217,6 +217,10 @@ void GameWindow::throwDices()
                             //Juega Gato
                             int r = rand() % this->quantPlayers;
                             Player *randPlayer = this->playerList[r];
+                            while(randPlayer->name == player->name){
+                                r = rand() % this->quantPlayers;
+                                randPlayer = this->playerList[r];
+                            }
                             CatWindow *c = new CatWindow();
                             c->P1->setPixmap(player->icon);
                             c->P2->setPixmap(randPlayer->icon);
@@ -281,11 +285,13 @@ void GameWindow::throwDices()
                         }
                     }
                     bool winner = true;
+                    int type = 0;
                     for(bool check:player->nodesVisited){
-                        if(check == false){
+                        if(check == false && this->board->totalNodes[type]->type2 != "Castigo"){
                             winner = false;
                             break;
                         }
+                        type++;
                     }
                     if(winner == true){
                         showMinWin(player->name,player->icon,"Ganador");
