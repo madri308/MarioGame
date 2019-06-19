@@ -16,8 +16,8 @@ public:
     explicit PathWindow(QWidget *parent = nullptr);
     QPushButton *matrix[8][3];
     bool won;
-
     void generateMatrix();
+    void randomize();
     GameWindow *g;
     ~PathWindow();
 

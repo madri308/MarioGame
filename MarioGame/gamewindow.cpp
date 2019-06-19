@@ -12,7 +12,9 @@
 #include "guesswhowindow.h"
 #include "bomberwindow.h"
 #include "QString"
-
+#include "pathwindow.h"
+#include "wordsearchwindow.h"
+#include "cardwindow.h"
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
     ui(new Ui::GameWindow)
@@ -215,6 +217,10 @@ void GameWindow::throwDices()
                     if(newWhereIs->type2 == "Juego"){ //JUEGO
                         if(newWhereIs->type == "Sopa De Letras"){
                             //Juega sopa de letras
+                            WordSearchWindow *w = new WordSearchWindow();
+                            w->g = this;
+                            w->show();
+                            this->hide();
                         }else if(newWhereIs->type == "Gato"){
                             //Juega Gato
                             int r = rand() % this->quantPlayers;
@@ -227,28 +233,37 @@ void GameWindow::throwDices()
                             c->show();
                             this->hide();
                         }else if (newWhereIs->type == "Memorizar Direccion"){
-                            //Juega Memorizar direccion
+                            /*PathWindow *c = new PathWindow();
+                            c->g = this;
+                            c->show();
+                            this->hide();*/
                         }else if(newWhereIs->type == "Memorizar Items"){
                             //Juega Memorizar Items
                         }else if (newWhereIs->type == "Atrapar El Gato"){
                             //Juega Atrapar el gato
                         }else if (newWhereIs->type == "Bomber Mario"){
-                            GuessWhoWindow *c = new GuessWhoWindow();
+                            /*BomberWindow *c = new BomberWindow();
                             c->g = this;
                             c->show();
-                            this->hide();
+                            this->hide();*/
                         }else if(newWhereIs->type == "Quien Es?"){
-                            GuessWhoWindow *c = new GuessWhoWindow();
+                            /*GuessWhoWindow *c = new GuessWhoWindow();
                             c->g = this;
                             c->show();
-                            this->hide();
+                            this->hide();*/
                         }else if(newWhereIs->type == "Rejunta Monedas"){
-                            CoinsWindow *c = new CoinsWindow();
+                            /*CoinsWindow *c = new CoinsWindow();
                             c->g = this;
                             c->show();
-                            this->hide();
+                            this->hide();*/
                         }else if(newWhereIs->type == "Cartas"){
                             //Juega cartas
+                            CardWindow *c = new CardWindow();
+                            c->g = this;
+
+                            c->desc->setText(player->name+"(X) cayo en gato por lo que tendra que jugar contra "+randPlayer->name+"(O)");
+                            c->show();
+                            this->hide();
                         }
                     }else {//COMODINES O CASTIGOS
                         move(player,newWhereIs);

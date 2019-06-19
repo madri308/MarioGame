@@ -76,7 +76,7 @@ void CoinsWindow::updateCountdown()
         }
         else {
             g->msgBox.setWindowTitle("Perdiste");
-            g->msgBox.setText("Has ganado, tu cuenta de monedas es: " + QString::number(playerCoinCount));
+            g->msgBox.setText("Has perdido, tu cuenta de monedas es: " + QString::number(playerCoinCount));
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
             g->showMaximized();

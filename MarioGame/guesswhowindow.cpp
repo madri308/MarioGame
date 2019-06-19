@@ -13,7 +13,7 @@ GuessWhoWindow::GuessWhoWindow(QWidget *parent) :
     srand(time(NULL));
     ui->setupUi(this);
     int randIndex = rand()%15;
-    currentCharacter = characters[14];
+    currentCharacter = characters[randIndex];
     qDebug() << currentCharacter;
     QPixmap background(currentCharacter);
     ui->label->setPixmap(background);
