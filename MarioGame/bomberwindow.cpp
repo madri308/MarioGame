@@ -183,6 +183,7 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
                     g->move(g->player,g->newWhereIs);
+                    g->pos--;
                     g->showMaximized();
                     this->hide();
                 }
@@ -232,6 +233,7 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
                     g->move(g->player,g->newWhereIs);
+                    g->pos--;
                     g->showMaximized();
                     this->hide();
                 }
@@ -281,6 +283,7 @@ void BomberWindow::onButtonClicked()
                     g->msgBox.setIconPixmap(g->player->icon);
                     g->msgBox.exec();
                     g->move(g->player,g->newWhereIs);
+                    g->pos--;
                     g->showMaximized();
                     this->hide();
                 }
@@ -297,6 +300,7 @@ void BomberWindow::onButtonClicked()
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
+            g->pos--;
             g->showMaximized();
             this->hide();
         }

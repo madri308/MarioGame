@@ -65,6 +65,7 @@ void CatWindow::changeState(int row,int column)
             g->msgBox.setIconPixmap(*ui->label->pixmap());
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
+            g->pos--;
             g->showMaximized();
             this->hide();
         }else {

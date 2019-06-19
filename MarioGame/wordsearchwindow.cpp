@@ -22,7 +22,7 @@ WordSearchWindow::WordSearchWindow(QWidget *parent) :
 
 void WordSearchWindow::generateMatrix()
 {
-    srand(time(NULL));
+         srand(time(NULL));
 
         int sizes[3] = {10,15,20};
         int random = rand()%3;
@@ -66,12 +66,14 @@ void WordSearchWindow::generateMatrix()
         QStringList separatedWord3 = selectedWords[2].split("");
         QStringList separatedWord4 = selectedWords[3].split("");
 
-        int randomRow = rand() % 3;
-        int randomColumn = rand() % matrixSize + 4;
-
+        int randomRow = (rand() % 3)+1;
+        int randomColumn = (rand() % matrixSize) + 4;
+        qDebug() << "Row: " << randomRow;
+        qDebug() << "Column: " << randomColumn;
         /*qDebug() << "Word:" << separatedWord;
-        qDebug() << "Row: " << randomRow+1;
-        qDebug() << "Column: " << randomColumn+1;*/
+
+        */
+        randomColumn=0;
         for (int c = 1; c < separatedWord.length()-1;c++)
         {
             if(randomRow < matrixSize)
@@ -81,29 +83,29 @@ void WordSearchWindow::generateMatrix()
             }
         }
 
-        int randomRow2 = rand() % matrixSize;
+        int randomRow2 = (rand() % 4)+1;
         int randomColumn2 = rand() % 3;
 
-        /*qDebug() << "Word:" << separatedWord2;
         qDebug() << "Row: " << randomRow2+1;
-        qDebug() << "Column: " << randomColumn2+1;*/
+        qDebug() << "Column: " << randomColumn2+1;
+        randomColumn2 = 1;
         for (int c = 1; c < separatedWord2.length()-1;c++)
         {
             if(randomColumn2 < matrixSize)
             {
-                matrix[randomRow2][randomColumn2]->setText(separatedWord2[c]);
+                matrix[matrixSize-randomRow2][randomColumn2]->setText(separatedWord2[c]);
                 randomColumn2++;
             }
         }
 
 
-        int randomRow3 = rand() % 3;
-        int randomColumn3 = rand() % 3;
+        int randomRow3 = rand() % 2;
+        int randomColumn3 = rand() % 2;
 
-        /*qDebug() << "Word:" << separatedWord3;
         qDebug() << "Row: " << randomRow3+1;
         qDebug() << "Column: " << randomColumn3+1;
-        qDebug() << "Word:" << separatedWord4;*/
+        randomRow3=0;
+        randomColumn3=0;
         for (int c = 1; c < separatedWord3.length()-1;c++)
         {
             if(randomColumn3 < matrixSize && randomRow3 < matrixSize)
@@ -114,20 +116,18 @@ void WordSearchWindow::generateMatrix()
             }
         }
 
-        int randomRow4 = rand() % 3;
-        int randomColumn4 = rand() % matrixSize;
+        int randomRow4 = matrixSize-1;
+        int randomColumn4 = matrixSize-1;
 
-        /*qDebug() << "Word:" << separatedWord3;
         qDebug() << "Row: " << randomRow3+1;
         qDebug() << "Column: " << randomColumn3+1;
-        qDebug() << "Word:" << separatedWord4;*/
         for (int c = 1; c < separatedWord4.length()-1;c++)
         {
             if(randomColumn4 < matrixSize && randomRow4 < matrixSize)
             {
                 matrix[randomRow4][randomColumn4]->setText(separatedWord4[c]);
                 randomColumn4--;
-                randomRow4++;
+                randomRow4--;
             }
         }
 }
@@ -135,24 +135,24 @@ void WordSearchWindow::generateMatrix()
 void WordSearchWindow::checkWords(QString words[4], int size)
 {
     bool allGood = true;
-        for(int i = 0; i < 4; i++)
+    for(int i = 0; i < 4; i++)
+    {
+        if (words[i].length() > size)
         {
-            if (words[i].length() > size)
-            {
-                allGood = false;
-                srand(time(NULL));
-                int random = rand()%100;
-                words[i] = diccionary[random];
-            }
-            else{
-                continue;
-            }
+            allGood = false;
+            srand(time(NULL));
+            int random = rand()%100;
+            words[i] = diccionary[random];
         }
+        else{
+            continue;
+        }
+    }
 
-        if (!allGood)
-        {
-            checkWords(words,size);
-        }
+    if (!allGood)
+    {
+        checkWords(words,size);
+    }
 }
 
 WordSearchWindow::~WordSearchWindow()
@@ -223,6 +223,7 @@ void WordSearchWindow::OnClicked()
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
+            g->pos--;
             g->showMaximized();
             this->hide();
             timer->stop();

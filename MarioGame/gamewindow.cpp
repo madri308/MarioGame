@@ -12,9 +12,10 @@
 #include "guesswhowindow.h"
 #include "bomberwindow.h"
 #include "QString"
+#include "QtDebug"
 #include "pathwindow.h"
 #include "wordsearchwindow.h"
-#include "cardwindow.h"
+#include "choosecardwindow.h"
 GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     QMainWindow(parent),
     ui(new Ui::GameWindow)
@@ -237,35 +238,33 @@ void GameWindow::throwDices()
                             c->show();
                             this->hide();
                         }else if (newWhereIs->type == "Memorizar Direccion"){
-                            /*PathWindow *c = new PathWindow();
+                            PathWindow *c = new PathWindow();
                             c->g = this;
                             c->show();
-                            this->hide();*/
+                            this->hide();
                         }else if(newWhereIs->type == "Memorizar Items"){
                             //Juega Memorizar Items
                         }else if (newWhereIs->type == "Atrapar El Gato"){
                             //Juega Atrapar el gato
                         }else if (newWhereIs->type == "Bomber Mario"){
-                            /*BomberWindow *c = new BomberWindow();
+                            BomberWindow *c = new BomberWindow();
                             c->g = this;
                             c->show();
-                            this->hide();*/
+                            this->hide();
                         }else if(newWhereIs->type == "Quien Es?"){
-                            /*GuessWhoWindow *c = new GuessWhoWindow();
+                            GuessWhoWindow *c = new GuessWhoWindow();
                             c->g = this;
                             c->show();
-                            this->hide();*/
+                            this->hide();
                         }else if(newWhereIs->type == "Rejunta Monedas"){
-                            /*CoinsWindow *c = new CoinsWindow();
+                            CoinsWindow *c = new CoinsWindow();
                             c->g = this;
                             c->show();
-                            this->hide();*/
+                            this->hide();
                         }else if(newWhereIs->type == "Cartas"){
                             //Juega cartas
-                            CardWindow *c = new CardWindow();
+                            ChooseCardWindow *c = new ChooseCardWindow();
                             c->g = this;
-
-                            c->desc->setText(player->name+"(X) cayo en gato por lo que tendra que jugar contra "+randPlayer->name+"(O)");
                             c->show();
                             this->hide();
                         }

@@ -4,7 +4,6 @@
 #include <QDebug>
 
 int tries = 3;
-int counter = 0;
 PathWindow::PathWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::PathWindow)
@@ -106,11 +105,9 @@ void PathWindow::onButtonClicked()
             g->msgBox.setIconPixmap(g->player->icon);
             g->msgBox.exec();
             g->move(g->player,g->newWhereIs);
+            //g->pos--;
             g->showMaximized();
             this->hide();
-            QPixmap pix(":/img/check.png");
-            QIcon ico(pix);
-            ((QPushButton*)sender())->setIcon(ico);
         }
     }
     else {

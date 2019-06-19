@@ -25,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    card.cpp \
+    choosecardwindow.cpp \
         main.cpp \
         gamewindow.cpp \
     board.cpp \
@@ -41,6 +43,8 @@ SOURCES += \
     wordsearchwindow.cpp
 
 HEADERS += \
+    card.h \
+    choosecardwindow.h \
         gamewindow.h \
     board.h \
     node.h \
@@ -56,6 +60,7 @@ HEADERS += \
     wordsearchwindow.h
 
 FORMS += \
+    choosecardwindow.ui \
         gamewindow.ui \
     startwindow.ui \
     choosewindow.ui \
