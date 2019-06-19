@@ -2,6 +2,7 @@
 #include "iostream"
 #include "windows.h"
 #include <QMainWindow>
+#include "gamewindow.h"
 Board::Board()
 {
     srand(time(NULL));
@@ -83,4 +84,43 @@ void Board::setNodesData()
             }
         }
     }
+}
+
+int Board::minDistance(int dist[], bool sptSet[])
+{
+    int min = INT_MAX;
+    int min_index = 0;
+    for (int v = 0; v < V; v++)
+        if (sptSet[v] == false && dist[v] <= min){
+            min = dist[v];
+            min_index = v;
+        }
+    return min_index;
+}
+QString Board::dijkstra(int graph[26][26], int src,bool visited[26])
+{
+    int dist[26];
+    bool sptSet[26];
+    for (int i = 0; i < V; i++){
+        dist[i] = INT_MAX;
+        sptSet[i] = false;
+    }
+    dist[src] = 0;
+    for (int count = 0; count < V - 1; count++) {
+        int u = minDistance(dist, sptSet);
+        sptSet[u] = true;
+        for (int v = 0; v < V; v++)
+            if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v]){
+                dist[v] = dist[u] + graph[u][v];
+            }
+    }
+    QString text = QString::fromStdString("\nDistancia Minima desde la casilla "+QString::number(src+1).toStdString()+" hasta la casilla:");
+    for (int i = 0; i < V; i++){
+        if(visited[i] == true){
+            text = text+QString::fromStdString("\n"+QString::number(i+1).toStdString()+" esta visitada");
+        }else{
+            text = text+QString::fromStdString("\n"+QString::number(i+1).toStdString()+" es de: "+QString::number(dist[i]).toStdString());
+        }
+    }
+    return text;
 }

@@ -38,6 +38,7 @@ public:
 
     void start();
     void move(Player *whereIs,Node *newPos);
+    void showMinWin(QString text, QPixmap icon, QString title);
 public slots:
     void throwDices();
     void showPlayerInfo(int b);
