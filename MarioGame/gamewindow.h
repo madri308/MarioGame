@@ -44,6 +44,7 @@ public slots:
     void showPlayerInfo(int b);
     void showMatrix();
     void showWays();
+    void cola();
 private:
     Ui::GameWindow *ui;
 };

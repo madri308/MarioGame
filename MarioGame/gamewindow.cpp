@@ -23,6 +23,9 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
         this->playerList[p] = players[p];
     }
     ui->select->hide();
+    ui->mover->hide();
+    ui->cola->hide();
+    ui->getCola->hide();
     //PONE EL BACKGROUND
     QPixmap bkgnd(":/BackGround1.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -45,6 +48,7 @@ GameWindow::GameWindow(QWidget *parent,Player *players[], int pc) :
     //CONEXIONES CON BOTONES
     connect(ui->matriz, SIGNAL(released()), this, SLOT(showMatrix()));
     connect(ui->throwB, SIGNAL(released()), this, SLOT(throwDices()));
+    connect(ui->mover, SIGNAL(released()), this, SLOT(cola()));
     int b = 0;
     for(QPushButton *button:images){
         connect(button, &QPushButton::released, [=]{
@@ -155,7 +159,7 @@ void GameWindow::start()
             this->board->totalNodes[numRand]->row++;
         }
         player->nodesVisited[numRand] = true;
-        player->whereIs = this->board->totalNodes[numRand];
+        player->whereIs = player->Start = this->board->totalNodes[numRand];
     }
 }
 
@@ -209,104 +213,129 @@ void GameWindow::throwDices()
                 player->blocked = player->blocked+1;
             }
         }else{
+            bool canMove = false;
             for(int n = 0 ; n<player->whereIs->ways ; n++){
                 if(player->whereIs->values[n] == totalDice){
                     newWhereIs = this->board->totalNodes[player->whereIs->nodes[n]->id];
-                    if(newWhereIs->type2 == "Juego"){ //JUEGO
-                        if(newWhereIs->type == "Sopa De Letras"){
-                            //Juega sopa de letras
-                        }else if(newWhereIs->type == "Gato"){
-                            //Juega Gato
-                            int r = rand() % this->quantPlayers;
-                            Player *randPlayer = this->playerList[r];
-                            while(randPlayer->name == player->name){
-                                r = rand() % this->quantPlayers;
-                                randPlayer = this->playerList[r];
+                    if(player->nodesVisited[newWhereIs->id] == true){
+                        this->showMinWin("Lo sentimos, la casilla "+QString::number(newWhereIs->id+1) +" ya la visitaste, seguiremos viendo si puedes moverte a otra!",player->icon,"No puedes");
+                    }else if( totalDice > 10){
+                        this->showMinWin("Lo sentimos, sacaste un numero mayor a 10!",player->icon,"No puedes");
+                    }else{
+                        canMove = true;
+                        if(newWhereIs->type2 == "Juego"){ //JUEGO
+                            if(newWhereIs->type == "Sopa De Letras"){
+                                //Juega sopa de letras
+                            }else if(newWhereIs->type == "Gato"){
+                                //Juega Gato
+                                int r = rand() % this->quantPlayers;
+                                Player *randPlayer = this->playerList[r];
+                                while(randPlayer->name == player->name){
+                                    r = rand() % this->quantPlayers;
+                                    randPlayer = this->playerList[r];
+                                }
+                                CatWindow *c = new CatWindow();
+                                c->P1->setPixmap(player->icon);
+                                c->P2->setPixmap(randPlayer->icon);
+                                c->g = this;
+                                c->desc->setText(player->name+"(X) cayo en gato por lo que tendra que jugar contra "+randPlayer->name+"(O)");
+                                c->show();
+                                this->hide();
+                            }else if (newWhereIs->type == "Memorizar Direccion"){
+                                //Juega Memorizar direccion
+                            }else if(newWhereIs->type == "Memorizar Items"){
+                                //Juega Memorizar Items
+                            }else if (newWhereIs->type == "Atrapar El Gato"){
+                                //Juega Atrapar el gato
+                            }else if (newWhereIs->type == "Bomber Mario"){
+                                GuessWhoWindow *c = new GuessWhoWindow();
+                                c->g = this;
+                                c->show();
+                                this->hide();
+                            }else if(newWhereIs->type == "Quien Es?"){
+                                GuessWhoWindow *c = new GuessWhoWindow();
+                                c->g = this;
+                                c->show();
+                                this->hide();
+                            }else if(newWhereIs->type == "Rejunta Monedas"){
+                                CoinsWindow *c = new CoinsWindow();
+                                c->g = this;
+                                c->show();
+                                this->hide();
+                            }else if(newWhereIs->type == "Cartas"){
+                                //Juega cartas
                             }
-                            CatWindow *c = new CatWindow();
-                            c->P1->setPixmap(player->icon);
-                            c->P2->setPixmap(randPlayer->icon);
-                            c->g = this;
-                            c->desc->setText(player->name+"(X) cayo en gato por lo que tendra que jugar contra "+randPlayer->name+"(O)");
-                            c->show();
-                            this->hide();
-                        }else if (newWhereIs->type == "Memorizar Direccion"){
-                            //Juega Memorizar direccion
-                        }else if(newWhereIs->type == "Memorizar Items"){
-                            //Juega Memorizar Items
-                        }else if (newWhereIs->type == "Atrapar El Gato"){
-                            //Juega Atrapar el gato
-                        }else if (newWhereIs->type == "Bomber Mario"){
-                            GuessWhoWindow *c = new GuessWhoWindow();
-                            c->g = this;
-                            c->show();
-                            this->hide();
-                        }else if(newWhereIs->type == "Quien Es?"){
-                            GuessWhoWindow *c = new GuessWhoWindow();
-                            c->g = this;
-                            c->show();
-                            this->hide();
-                        }else if(newWhereIs->type == "Rejunta Monedas"){
-                            CoinsWindow *c = new CoinsWindow();
-                            c->g = this;
-                            c->show();
-                            this->hide();
-                        }else if(newWhereIs->type == "Cartas"){
-                            //Juega cartas
+                        }else {//COMODINES O CASTIGOS
+                            move(player,newWhereIs);
+                            //CASO TUBOS
+                            if(player->whereIs->type == "Tubos1"){
+                                showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube2->id+1),player->icon,"Tubos");
+                                move(player,this->board->tube2);
+                            }else if (player->whereIs->type == "Tubos2") {
+                                showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube3->id+1),player->icon,"Tubos");
+                                move(player,this->board->tube3);
+                            }else if (player->whereIs->type == "Tubos3") {
+                                showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube1->id+1),player->icon,"Tubos");
+                                move(player,this->board->tube1);
+                            }
+                            //CASO CARCEL
+                            else if (player->whereIs->type == "Carcel") {
+                                showMinWin(player->name+" ha caido en la carcel por lo que perdera 2 turnos",player->icon,"Carcel");
+                                player->blocked = player->blocked+2;
+                            }
+                            //CASO ESTRELLA
+                            else if (player->whereIs->type == "Estrella") {
+                                showMinWin(player->name+" ha caido en Estrella por lo que jugara de nuevo",player->icon,"Estrella");
+                                this->pos--;
+                            }
+                            //CASO FLOR DE FUEGO.
+                            else if (player->whereIs->type == "Flor De Fuego") {
+                                ui->select->show();
+                                this->select = 1;
+                                showMinWin(player->name+" ha caido en Flor De Fuego, puedes escoger a un jugador para que empiece desde cero.",player->icon,"Flor de fuego");
+                                this->ui->throwB->hide();
+                            }
+                            //CASO FLOR DE HIELO.
+                            else if (player->whereIs->type == "Flor De Hielo") {
+                                ui->select->show();
+                                this->select = 2;
+                                showMinWin(player->name+" ha caido en Flor De Hielo, puedes escoger a un jugador para que pierda dos turnos.",player->icon,"Flor De Hielo");
+                                this->ui->throwB->hide();
+                            }
+                            //CASO COLA.
+                            else if (player->whereIs->type == "Cola") {
+                                ui->throwB->hide();
+                                ui->cola->show();
+                                ui->getCola->show();
+                                ui->mover->show();
+                                showMinWin(player->name+" ha caido en Cola, puedes escoger a una casilla a cual ir",player->icon,"Cola");
+                            }
                         }
-                    }else {//COMODINES O CASTIGOS
-                        move(player,newWhereIs);
-                        //CASO TUBOS
-                        if(player->whereIs->type == "Tubos1"){
-                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube2->id+1),player->icon,"Tubos");
-                            move(player,this->board->tube2);
-                        }else if (player->whereIs->type == "Tubos2") {
-                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube3->id+1),player->icon,"Tubos");
-                            move(player,this->board->tube3);
-                        }else if (player->whereIs->type == "Tubos3") {
-                            showMinWin(player->name+" ha caido en el "+QString::fromStdString(player->whereIs->type)+" por lo que se ira a la casilla "+QString::number(this->board->tube1->id+1),player->icon,"Tubos");
-                            move(player,this->board->tube1);
+                        bool winner = true;
+                        int type = 0;
+                        for(bool check:player->nodesVisited){
+                            if(check == false && this->board->totalNodes[type]->type2 != "Castigo"){
+                                winner = false;
+                                break;
+                            }
+                            type++;
                         }
-                        //CASO CARCEL
-                        else if (player->whereIs->type == "Carcel") {
-                            showMinWin(player->name+" ha caido en la carcel por lo que perdera 2 turnos",player->icon,"Carcel");
-                            player->blocked = player->blocked+2;
+                        if(winner == true){
+                            showMinWin(player->name,player->icon,"Ganador");
                         }
-                        //CASO ESTRELLA
-                        else if (player->whereIs->type == "Estrella") {
-                            showMinWin(player->name+" ha caido en Estrella por lo que jugara de nuevo",player->icon,"Estrella");
-                            this->pos--;
-                        }
-                        //CASO FLOR DE FUEGO.
-                        else if (player->whereIs->type == "Flor De Fuego") {
-                            ui->select->show();
-                            this->select = 1;
-                            showMinWin(player->name+" ha caido en Flor De Fuego, puedes escoger a un jugador para que empiece desde cero.",player->icon,"Flor de fuego");
-                            this->ui->throwB->hide();
-                        }
-                        //CASO FLOR DE HIELO.
-                        else if (player->whereIs->type == "Flor De Hielo") {
-                            ui->select->show();
-                            this->select = 2;
-                            showMinWin(player->name+" ha caido en Flor De Hielo, puedes escoger a un jugador para que pierda dos turnos.",player->icon,"Flor De Hielo");
-                            this->ui->throwB->hide();
-                        }
+                        break;
                     }
-                    bool winner = true;
-                    int type = 0;
-                    for(bool check:player->nodesVisited){
-                        if(check == false && this->board->totalNodes[type]->type2 != "Castigo"){
-                            winner = false;
-                            break;
-                        }
-                        type++;
-                    }
-                    if(winner == true){
-                        showMinWin(player->name,player->icon,"Ganador");
-                    }
-                    break;
                 }
+            }if(!canMove){
+                showMinWin("No te puedes mover, debes empezar de nuevo",player->icon,"Lo sentimos");
+                Player *newOne = new Player(player->name,player->icon,0);
+                newOne->whereIs = newOne->Start = player->Start;
+                newOne->row = player->row;
+                newOne->column = player->column;
+                newOne->nodesVisited[newOne->whereIs->id] = true;
+                playerList[this->pos] = newOne;
             }
+
         }
     }
     QLabel *playerName = this->names[this->pos];
@@ -388,4 +417,17 @@ void GameWindow::showWays()
             wayss->addItem("          "+QString::number(node->nodes[w]->id+1)+" necesitas sacar "+QString::number(node->values[w]));
         }
     }
+}
+
+void GameWindow::cola()
+{
+    QString box = ui->getCola->toPlainText();
+    if(box.toInt() < 0 || box.toInt() > 26){
+        this->showMinWin("Esta casilla no existe, lo sentimos",player->icon,"Error");
+    }else{
+        this->move(player,this->board->totalNodes[box.toInt()-1]);
+    }
+    ui->getCola->hide();
+    ui->cola->hide();
+    ui->mover->hide();
 }

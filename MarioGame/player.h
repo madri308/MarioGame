@@ -16,6 +16,7 @@ public:
     bool nodesVisited[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     Node *whereIs;
     int box;
+    Node *Start;
 
     int row = 0;
     int column = 0;
