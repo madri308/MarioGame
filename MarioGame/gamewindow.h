@@ -33,6 +33,8 @@ public:
 
     QGridLayout *CImages[26];
     QLabel *CNames[26];
+    Node *newWhereIs;
+    Player *player;
 
     void start();
     void move(Player *whereIs,Node *newPos);

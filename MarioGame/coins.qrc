@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/coins">
+        <file>coin.png</file>
+        <file>redcoin.png</file>
+        <file>block.jpg</file>
+    </qresource>
+</RCC>

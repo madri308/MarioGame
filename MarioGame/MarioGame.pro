@@ -32,7 +32,12 @@ SOURCES += \
     startwindow.cpp \
     player.cpp \
     choosewindow.cpp \
-    matrixwindow.cpp
+    matrixwindow.cpp \
+    catwindow.cpp\
+    bomberwindow.cpp \
+    coinswindow.cpp \
+    guesswhowindow.cpp \
+    pathwindow.cpp
 
 HEADERS += \
         gamewindow.h \
@@ -41,13 +46,24 @@ HEADERS += \
     startwindow.h \
     player.h \
     choosewindow.h \
-    matrixwindow.h
+    matrixwindow.h \
+    catwindow.h\
+    bomberwindow.h \
+    coinswindow.h \
+    guesswhowindow.h \
+    pathwindow.h
 
 FORMS += \
         gamewindow.ui \
     startwindow.ui \
     choosewindow.ui \
-    matrixwindow.ui
+    matrixwindow.ui \
+    catwindow.ui\
+    bomberwindow.ui \
+    coinswindow.ui \
+    guesswhowindow.ui \
+    mainwindow.ui \
+    pathwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -55,4 +71,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    extrafiles.qrc
+    extrafiles.qrc\
+    bombermario.qrc \
+    catchthecat.qrc \
+    characters.qrc \
+    coins.qrc \
+    resource.qrc

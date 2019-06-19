@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/catchcat">
+        <file>blackcircle.png</file>
+        <file>cat.png</file>
+        <file>circle.png</file>
+    </qresource>
+</RCC>

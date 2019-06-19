@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/char">
+        <file>boo.png</file>
+        <file>bowser.png</file>
+        <file>birdo.jpg</file>
+        <file>floruga.png</file>
+        <file>greenturtle.png</file>
+        <file>kingboo.png</file>
+        <file>koopa.png</file>
+        <file>luigi.png</file>
+        <file>mario.png</file>
+        <file>peach.png</file>
+        <file>goomba.png</file>
+        <file>toad.jpg</file>
+        <file>yoshi.jpg</file>
+        <file>redkoopa.png</file>
+        <file>greenturtle.jpg</file>
+        <file>magikoopa.jpg</file>
+    </qresource>
+</RCC>
